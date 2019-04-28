@@ -88,5 +88,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(loadSimulations, 0);
             }
         });
+
+        runSimulation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent runSimulations = new Intent(getApplicationContext(), ExecutingSimulation.class);
+                startActivity(runSimulations);
+            }
+        });
     }
 }

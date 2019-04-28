@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Apr 27 15:16:55 BST 2019
+#Sat Apr 27 15:53:52 BST 2019
 0.baseType=DIRECTORY
 0.base=D\:\\asmer\\StockMarketSimulator\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 0.path=classes.dex

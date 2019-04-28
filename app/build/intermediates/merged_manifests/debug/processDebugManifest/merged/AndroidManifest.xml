@@ -30,6 +30,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity android:name="com.intelligence_1.stockmarketsimulator.ExecutingSimulation" />
     </application>
 
 </manifest>

@@ -719,6 +719,7 @@ id fill_vertical
 id forever
 id gone
 id graph
+id graph_executing
 id group_divider
 id groups
 id home
@@ -844,6 +845,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_executing_simulation
 layout activity_load_simulations
 layout activity_main
 layout notification_action
