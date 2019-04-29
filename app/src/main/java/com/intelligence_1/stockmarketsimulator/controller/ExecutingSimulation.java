@@ -1,9 +1,11 @@
-package com.intelligence_1.stockmarketsimulator;
+package com.intelligence_1.stockmarketsimulator.controller;
 
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.intelligence_1.stockmarketsimulator.R;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -16,14 +18,15 @@ public class ExecutingSimulation extends AppCompatActivity {
     private Runnable mTimer;
     private double graphLastXValue = 5d;
     private LineGraphSeries<DataPoint> mSeries;
+    private LineGraphSeries<DataPoint> mSeries2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_executing_simulation);
-
+        // get the view
         GraphView graphExecuting = (GraphView) findViewById(R.id.graph_executing);
-
+        //init the graph
         initGraph(graphExecuting);
 
     }
@@ -35,11 +38,18 @@ public class ExecutingSimulation extends AppCompatActivity {
 
         graph.getGridLabelRenderer().setLabelVerticalWidth(100);
 
-        // first mSeries is a line
+        // first mSeries is a line with background
         mSeries = new LineGraphSeries<>();
         mSeries.setDrawDataPoints(true);
         mSeries.setDrawBackground(true);
         graph.addSeries(mSeries);
+
+        // Second mSeries is al plane line
+        mSeries2 = new LineGraphSeries<>();
+        mSeries2.setDrawDataPoints(true);
+        mSeries2.setColor(Color.GREEN);
+        graph.addSeries(mSeries2);
+
     }
 
     @Override
@@ -50,10 +60,11 @@ public class ExecutingSimulation extends AppCompatActivity {
             public void run() {
                 graphLastXValue += 0.25d;
                 mSeries.appendData(new DataPoint(graphLastXValue, getRandom()), true, 22);
-                mHandler.postDelayed(this, 330);
+                mSeries2.appendData(new DataPoint(graphLastXValue, getRandom()), true, 22);
+                mHandler.postDelayed(this, 230);
             }
         };
-        mHandler.postDelayed(mTimer, 1500);
+        mHandler.postDelayed(mTimer, 500);
     }
 
     public void onPause() {
@@ -63,7 +74,17 @@ public class ExecutingSimulation extends AppCompatActivity {
 
     double mLastRandom = 2;
     Random mRand = new Random();
+
+    // Create a Method that generates a random number
     private double getRandom() {
         return mLastRandom += mRand.nextDouble()*0.5 - 0.25;
     }
+
+    // Disable default function of onBackPressed so we make sure don't stop the simulation while running
+    @Override
+    public void onBackPressed() {
+        // By doing nothing in this method we override the default function of the method
+    }
+
+
 }

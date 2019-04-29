@@ -28,4 +28,7 @@ dependencies {
 
     // Graph Implementation by g.jjoe64@gmail.com
     implementation 'com.jjoe64:graphview:4.2.2'
+
+    // Implementing library for Random Generated Data
+    implementation 'com.github.blocoio:faker:1.0.1'
 }

@@ -1,4 +1,4 @@
-package com.intelligence_1.stockmarketsimulator;
+package com.intelligence_1.stockmarketsimulator.controller;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -7,12 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.intelligence_1.stockmarketsimulator.R;
 import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-import java.lang.reflect.Array;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     private GraphView graph;
     private Button runSimulation;
     private Button loadSimulation;
+
+    // String Use for Debugging and printing Logs
+    private final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         series2.setDrawDataPoints(true);
         series2.setAnimated(true);
         graph.addSeries(series2);
-
 
     }
 

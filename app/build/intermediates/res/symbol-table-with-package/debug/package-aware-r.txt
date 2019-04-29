@@ -730,6 +730,7 @@ id ifRoom
 id image
 id imageView
 id imageView2
+id imageView3
 id info
 id invisible
 id italic
@@ -800,6 +801,7 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
+id textView2
 id time
 id title
 id titleDividerNoCustom
@@ -848,6 +850,7 @@ layout abc_tooltip
 layout activity_executing_simulation
 layout activity_load_simulations
 layout activity_main
+layout initial_splash_screen
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
