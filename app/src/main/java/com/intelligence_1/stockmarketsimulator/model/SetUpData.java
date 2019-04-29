@@ -1,3 +1,11 @@
+/**
+ * Public Class SetUpData in charge of creating the instances of Investors and Companies
+ * that we will use to implement in the Simulator
+ *
+ * This class will create Investor Companies and Shares with
+ * a Builder Pattern Design
+ */
+
 package com.intelligence_1.stockmarketsimulator.model;
 
 import java.util.ArrayList;
@@ -6,11 +14,8 @@ import io.bloco.faker.Faker;
 
 
 /**
- * Public Class SetUpData in charge of creating the instances of Investors and Companies
- * that we will use to implement in the Simulator
  *
- * This class will create Investor Companies and Shares with
- * a Builder Pattern Design
+ * @author Asmer Bracho
  */
 public class SetUpData {
 

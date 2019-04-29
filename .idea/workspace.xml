@@ -24,9 +24,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Investor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Investor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Reports.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Reports.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/SetUpData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/SetUpData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Test.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,8 +79,8 @@
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+            <state relative-caret-position="300">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -101,8 +100,8 @@
       <file leaf-file-name="Reports.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Reports.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="73" column="4" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
+            <state relative-caret-position="-5">
+              <caret line="93" column="73" selection-start-line="93" selection-start-column="40" selection-end-line="93" selection-end-column="73" />
               <folding>
                 <element signature="e#0#145#0" expanded="true" />
                 <element signature="method#getCompanyCapital#0;class#Reports#0" />
@@ -114,9 +113,10 @@
       <file leaf-file-name="SetUpData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/SetUpData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="-208">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
+                <element signature="e#0#238#0" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
@@ -126,7 +126,7 @@
       <file leaf-file-name="Investor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Investor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
+            <state relative-caret-position="-846">
               <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
               <folding>
                 <element signature="e#702#703#0" expanded="true" />
@@ -2504,10 +2504,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/SetUp.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/controller/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Company (2).java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/SetUpData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Investor.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Company.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Capital.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/SetUpData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Test.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Reports.java" />
       </list>
@@ -2523,7 +2523,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -2534,6 +2534,51 @@
             <path>
               <item name="StockMarketSimulator" type="b2602c69:ProjectViewProjectNode" />
               <item name="StockMarketSimulator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockMarketSimulator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockMarketSimulator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockMarketSimulator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockMarketSimulator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockMarketSimulator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockMarketSimulator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockMarketSimulator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockMarketSimulator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockMarketSimulator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockMarketSimulator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stockmarketsimulator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockMarketSimulator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockMarketSimulator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stockmarketsimulator" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -2594,12 +2639,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="android.project.structure.last.selected" value="app" />
+    <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="ad061603085484b9a3" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
@@ -2757,7 +2802,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -2767,14 +2811,14 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Preview" order="4" weight="0.19932885" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.15811966" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3133903" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.116809115" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.47150996" />
       <window_info anchor="bottom" id="Logcat" order="8" weight="0.18376069" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23691276" />
       <window_info anchor="bottom" id="Build" order="8" weight="0.41737893" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
       <window_info anchor="right" id="Gradle" order="4" />
@@ -3144,42 +3188,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/SetUpData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Investor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-          <folding>
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#741#742#0" expanded="true" />
-            <element signature="e#776#777#0" expanded="true" />
-            <element signature="e#832#833#0" expanded="true" />
-            <element signature="e#880#881#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
-            <element signature="e#1182#1183#0" expanded="true" />
-            <element signature="e#1211#1212#0" expanded="true" />
-            <element signature="e#1256#1257#0" expanded="true" />
-            <element signature="e#1292#1293#0" expanded="true" />
-            <element signature="e#1333#1334#0" expanded="true" />
-            <element signature="e#1370#1371#0" expanded="true" />
-            <element signature="e#1430#1431#0" expanded="true" />
-            <element signature="e#1482#1483#0" expanded="true" />
-            <element signature="e#1568#1569#0" expanded="true" />
-            <element signature="e#1617#1618#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Company.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
@@ -3217,17 +3225,54 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/SetUpData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-208">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#238#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+        <state relative-caret-position="300">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Investor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-846">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding>
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#741#742#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+            <element signature="e#832#833#0" expanded="true" />
+            <element signature="e#880#881#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#983#984#0" expanded="true" />
+            <element signature="e#1182#1183#0" expanded="true" />
+            <element signature="e#1211#1212#0" expanded="true" />
+            <element signature="e#1256#1257#0" expanded="true" />
+            <element signature="e#1292#1293#0" expanded="true" />
+            <element signature="e#1333#1334#0" expanded="true" />
+            <element signature="e#1370#1371#0" expanded="true" />
+            <element signature="e#1430#1431#0" expanded="true" />
+            <element signature="e#1482#1483#0" expanded="true" />
+            <element signature="e#1568#1569#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/intelligence_1/stockmarketsimulator/model/Reports.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="73" column="4" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
+        <state relative-caret-position="-5">
+          <caret line="93" column="73" selection-start-line="93" selection-start-column="40" selection-end-line="93" selection-end-column="73" />
           <folding>
             <element signature="e#0#145#0" expanded="true" />
             <element signature="method#getCompanyCapital#0;class#Reports#0" />
