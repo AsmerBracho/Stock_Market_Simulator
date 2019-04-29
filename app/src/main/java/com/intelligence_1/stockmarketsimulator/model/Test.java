@@ -8,8 +8,10 @@ public class Test {
         List<Company> companies = SetUpData.SetUpCompanies(100);
         List<Investor> investors = SetUpData.SetUpInvestors(100);
 
-        System.out.println(companies);
+        System.out.println(Reports.getCompanyCapital(companies, Reports.Capital.HIGHEST));
+        System.out.println("--------");
 
+        System.out.println(Reports.getCompanyCapital(companies, Reports.Capital.LOWEST));
 
     }
 }

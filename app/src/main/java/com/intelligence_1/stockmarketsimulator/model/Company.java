@@ -33,6 +33,42 @@ public class Company {
         this.sharePrice = 0.98*this.sharePrice;
     }
 
+    public int getCompanyID() {
+        return companyID;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public int getCompanyNumberOfShares() {
+        return companyNumberOfShares;
+    }
+
+    public void setCompanyNumberOfShares(int companyNumberOfShares) {
+        this.companyNumberOfShares = companyNumberOfShares;
+    }
+
+    public double getSharePrice() {
+        return sharePrice;
+    }
+
+    public void setSharePrice(double sharePrice) {
+        this.sharePrice = sharePrice;
+    }
+
+    public int getSharesSold() {
+        return sharesSold;
+    }
+
+    public void setSharesSold(int sharesSold) {
+        this.sharesSold = sharesSold;
+    }
+
     @Override
     public String toString() {
         return "ID: " + companyID +
@@ -65,8 +101,6 @@ public class Company {
             return new Company(this);
         }
     }
-
-
 
 }
 
