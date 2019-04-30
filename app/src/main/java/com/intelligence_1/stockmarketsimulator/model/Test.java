@@ -1,5 +1,10 @@
 package com.intelligence_1.stockmarketsimulator.model;
 
+import com.intelligence_1.stockmarketsimulator.model.companies.Company;
+import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
+import com.intelligence_1.stockmarketsimulator.model.utilities.Reports;
+import com.intelligence_1.stockmarketsimulator.model.utilities.SetUpData;
+
 import java.util.List;
 
 public class Test {
@@ -11,7 +16,7 @@ public class Test {
         System.out.println(Reports.getCompanyCapital(companies, Reports.Capital.HIGHEST));
         System.out.println("--------");
 
-        System.out.println(Reports.getCompanyCapital(companies, Reports.Capital.LOWEST));
+
 
     }
 }

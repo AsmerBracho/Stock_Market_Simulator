@@ -2,7 +2,9 @@
  * This Class will Contain a set of method that will return the data used to
  * generate the different report when the simulation is done
  */
-package com.intelligence_1.stockmarketsimulator.model;
+package com.intelligence_1.stockmarketsimulator.model.utilities;
+
+import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 
 import java.util.List;
 

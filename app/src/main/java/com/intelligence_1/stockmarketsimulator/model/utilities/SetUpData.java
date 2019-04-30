@@ -1,7 +1,10 @@
-package com.intelligence_1.stockmarketsimulator.model;
+package com.intelligence_1.stockmarketsimulator.model.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.intelligence_1.stockmarketsimulator.model.companies.Company;
+import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 import io.bloco.faker.Faker;
 
 
