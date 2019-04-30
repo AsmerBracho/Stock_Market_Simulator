@@ -1,4 +1,0 @@
-#Mon Apr 29 16:58:13 BST 2019
-base.0=D\:\\asmer\\StockMarketSimulator\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-path.0=classes.dex
-renamed.0=classes.dex
