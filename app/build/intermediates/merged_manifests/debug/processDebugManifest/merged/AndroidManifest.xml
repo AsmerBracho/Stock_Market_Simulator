@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="21"
         android:targetSdkVersion="28" />
 
     <application
@@ -17,8 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.MainActivity" >
-        </activity>
+        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.MainActivity" />
         <activity android:name="com.intelligence_1.stockmarketsimulator.controller.LoadSimulations" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -34,6 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.intelligence_1.stockmarketsimulator.Results" />
     </application>
 
 </manifest>

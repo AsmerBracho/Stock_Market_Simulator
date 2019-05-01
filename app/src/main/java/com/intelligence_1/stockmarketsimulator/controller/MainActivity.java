@@ -14,15 +14,22 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.Random;
 
+/**
+ * Stock Market Project
+ * @author Asmer Bracho (2016328), Gabriel Oliveira (2016310), Miguelantonio Guerra (2016324)
+ */
 public class MainActivity extends AppCompatActivity {
 
-    private GraphView graph;
-    private Button runSimulation;
-    private Button loadSimulation;
+    private GraphView graph; // view for graph
+    private Button runSimulation; // view for button run_simulation
+    private Button loadSimulation; // vie for button load_simulation
 
-    // String Use for Debugging and printing Logs
-    private final String TAG = "MainActivity";
+    private final String TAG = "MainActivity"; // String used for Debugging and printing Logs
 
+    /**
+     * On Create method is an override method create every time the activity is requested
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +44,11 @@ public class MainActivity extends AppCompatActivity {
         handleListeners();
     }
 
-    // Method that cointains the Graph to be shown in the main Screen
+
+    /**
+     * Method that cointains the Graph to be shown in the main Screen
+     * @param graph
+     */
     public void initGraph(GraphView graph) {
         Random r = new Random();
         DataPoint[] dataSerie1 = new DataPoint[10];
