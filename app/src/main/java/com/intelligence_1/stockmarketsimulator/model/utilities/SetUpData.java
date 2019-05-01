@@ -1,21 +1,25 @@
 /**
  * Public Class SetUpData in charge of creating the instances of Investors and Companies
  * that we will use to implement in the Simulator
- *
+ * <p>
  * This class will create Investor Companies and Shares with
  * a Builder Pattern Design
  */
 
-package com.intelligence_1.stockmarketsimulator.model;
+package com.intelligence_1.stockmarketsimulator.model.utilities;
+
+import com.intelligence_1.stockmarketsimulator.model.companies.Company;
+import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import io.bloco.faker.Faker;
 
 
 /**
- *
- * @author Asmer Bracho
+ * Stock Market Project
+ * @author Asmer Bracho (2016328), Gabriel Oliveira (2016310), Miguelantonio Guerra (2016324)
  */
 public class SetUpData {
 
@@ -40,8 +44,8 @@ public class SetUpData {
             String name = faker.company.name();
 
             // info for shares
-            int numberOfShares = (int) (Math.random() * 1000 + 100);
-            double price = (double) (Math.random() * 100 + 10);
+            int numberOfShares = (int) (Math.random() * 900 + 100);
+            double price = (double) (Math.random() * 90 + 10);
 
             // Add the company name and shares to the List
             companies.add(new Company.CompanyBuilder(name, numberOfShares, price).build());
@@ -65,7 +69,7 @@ public class SetUpData {
             // create a fake name
             String name = faker.name.firstName() + " " + faker.name.lastName();
             // create a budget between 1000 and 10000
-            double budget = (double) (Math.random() * 10000 + 1000);
+            double budget = (double) (Math.random() * 9000 + 1000);
 
             // add Investor to the list
             investors.add(new Investor.InvestorBuilder(name, budget).build());
