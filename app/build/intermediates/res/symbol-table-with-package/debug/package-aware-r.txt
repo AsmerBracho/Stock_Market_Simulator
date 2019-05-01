@@ -1137,6 +1137,7 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id imageView11
 id imageView2
 id imageView3
 id imageView4
@@ -1146,10 +1147,16 @@ id imageView7
 id imageView8
 id imageView9
 id info
+id investor_budget
+id investor_capital
+id investor_companies
 id investor_higest_shares
 id investor_less_company
 id investor_less_shares
 id investor_most_company
+id investor_name
+id investor_shares
+id investor_title
 id invisible
 id italic
 id item_touch_helper_previous_elevation
@@ -1160,6 +1167,7 @@ id line1
 id line3
 id listMode
 id list_item
+id list_of_investors
 id load_simulation
 id logest_capital
 id logo_result
@@ -1187,6 +1195,12 @@ id parentPanel
 id parent_matrix
 id percent
 id pin
+id placeholder_investor_budget
+id placeholder_investor_capital
+id placeholder_investor_companies
+id placeholder_investor_id
+id placeholder_investor_name
+id placeholder_investor_shares
 id progress_circular
 id progress_horizontal
 id radio
@@ -1276,6 +1290,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id view
 id view_offset_helper
 id visible
 id withText
@@ -1329,9 +1344,11 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_executing_simulation
+layout activity_investor_result
 layout activity_load_simulations
 layout activity_main
 layout activity_results
+layout adapter_investor_result
 layout bottom_nav_menu
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

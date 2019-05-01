@@ -6,6 +6,9 @@
 
 package com.intelligence_1.stockmarketsimulator.model.companies;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
@@ -13,7 +16,7 @@ import java.util.List;
  *
  * @author Asmer Bracho (2016328), Gabriel Oliveira (2016310), Miguelantonio Guerra (2016324)
  */
-public class Company implements Subject {
+public class Company implements Subject, Parcelable {
     private final int companyID; // Company ID
     private String companyName; // Company Name
     private int companyNumberOfShares; // Company Number Of Shares
@@ -37,6 +40,26 @@ public class Company implements Subject {
         this.sharesSold = builder.sharesSold;
         this.observerToDoubleSharePrice = builder.observerToDoubleSharePrice;
     }
+
+    protected Company(Parcel in) {
+        companyID = in.readInt();
+        companyName = in.readString();
+        companyNumberOfShares = in.readInt();
+        sharePrice = in.readDouble();
+        sharesSold = in.readInt();
+    }
+
+    public static final Creator<Company> CREATOR = new Creator<Company>() {
+        @Override
+        public Company createFromParcel(Parcel in) {
+            return new Company(in);
+        }
+
+        @Override
+        public Company[] newArray(int size) {
+            return new Company[size];
+        }
+    };
 
     /**
      * This method is called every time the company sells a share.
@@ -152,6 +175,20 @@ public class Company implements Subject {
     @Override
     public Object getUpdate() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(companyID);
+        dest.writeString(companyName);
+        dest.writeInt(companyNumberOfShares);
+        dest.writeDouble(sharePrice);
+        dest.writeInt(sharesSold);
     }
 
     /**

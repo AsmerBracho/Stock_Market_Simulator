@@ -5,13 +5,16 @@
  */
 package com.intelligence_1.stockmarketsimulator.model.investors;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.HashMap;
 
 /**
  * Stock Market Project
  * @author Asmer Bracho (2016328), Gabriel Oliveira (2016310), Miguelantonio Guerra (2016324)
  */
-public class Investor {
+public class Investor implements Parcelable {
     private final int investorID; // Investor ID
     private String investorName; // Investor Name
     private int investorNumberOfBoughtShares; // Investor number of shares
@@ -32,6 +35,25 @@ public class Investor {
         this.investorBudget = builder.investorBudget;
         this.shares = builder.shares;
     }
+
+    protected Investor(Parcel in) {
+        investorID = in.readInt();
+        investorName = in.readString();
+        investorNumberOfBoughtShares = in.readInt();
+        investorBudget = in.readDouble();
+    }
+
+    public static final Creator<Investor> CREATOR = new Creator<Investor>() {
+        @Override
+        public Investor createFromParcel(Parcel in) {
+            return new Investor(in);
+        }
+
+        @Override
+        public Investor[] newArray(int size) {
+            return new Investor[size];
+        }
+    };
 
     /**
      * Getter for the investor ID
@@ -117,6 +139,20 @@ public class Investor {
                 "\n\tName: " + this.investorName +
                 "\n\tShares: " + this.investorNumberOfBoughtShares +
                 "\n\tTotal: " + this.investorBudget;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeInt(investorID);
+        dest.writeString(investorName);
+        dest.writeInt(investorNumberOfBoughtShares);
+        dest.writeDouble(investorBudget);
     }
 
     /**

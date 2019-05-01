@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controller.MainActivity"></activity>
+        <activity android:name=".controller.MainActivity" />
         <activity android:name=".controller.LoadSimulations">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -25,7 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.Results"></activity>
+        <activity android:name=".controller.Results" />
+        <activity android:name=".controller.InvestorResult"></activity>
     </application>
 
 </manifest>

@@ -35,6 +35,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.intelligence_1.stockmarketsimulator.controller.Results" />
+        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.InvestorResult" />
     </application>
 
 </manifest>
