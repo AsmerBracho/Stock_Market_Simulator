@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create a new Intent
-                Intent loadSimulations = new Intent(getApplicationContext(), LoadSimulations.class);
+                Intent loadSimulations = new Intent(getApplicationContext(), Results.class);
                 startActivityForResult(loadSimulations, 0);
             }
         });

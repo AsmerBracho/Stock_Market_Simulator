@@ -23,6 +23,25 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\asmer\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\5441bac76528e49ffc878cb851b16cb8\\res\\values-v21\\values-v21.xml",
+                    "from": {
+                        "startLines": "2,10,18,26",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,484,910,1333",
+                        "endLines": "9,17,25,33",
+                        "endColumns": "10,10,10,10",
+                        "endOffsets": "479,905,1328,1763"
+                    },
+                    "to": {
+                        "startLines": "279,287,295,303",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "20424,20853,21279,21702",
+                        "endLines": "286,294,302,310",
+                        "endColumns": "10,10,10,10",
+                        "endOffsets": "20848,21274,21697,22132"
+                    }
+                },
+                {
                     "source": "C:\\Users\\asmer\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\6a784e06baceccafff41372482b84c6e\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
@@ -33,12 +52,12 @@
                         "endOffsets": "154,218,285,349,465,591,717,845,1017,1355"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,263,264,271,275,279,282",
+                        "startLines": "2,3,4,5,263,264,271,275,311,314",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,159,223,290,19262,19378,19835,20129,20424,20596",
-                        "endLines": "2,3,4,5,263,264,271,275,281,286",
+                        "startOffsets": "55,159,223,290,19262,19378,19835,20129,22137,22309",
+                        "endLines": "2,3,4,5,263,264,271,275,313,318",
                         "endColumns": "103,63,66,63,115,125,125,127,12,12",
-                        "endOffsets": "154,218,285,349,19373,19499,19956,20252,20591,20929"
+                        "endOffsets": "154,218,285,349,19373,19499,19956,20252,22304,22642"
                     }
                 },
                 {
