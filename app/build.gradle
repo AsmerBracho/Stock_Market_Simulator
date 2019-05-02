@@ -34,4 +34,10 @@ dependencies {
 
     // Implementing library for Random Generated Data
     implementation 'com.github.blocoio:faker:1.0.1'
+
+    // Pie Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v2.1.6'
+
+    //Graphs Library
+    implementation 'com.jjoe64:graphview:4.2.2'
 }

@@ -1130,9 +1130,11 @@ id fill_vertical
 id filled
 id fixed
 id forever
+id fragment_container
 id ghost_view
 id gone
 id graph
+id graphCardView
 id graph_executing
 id group_divider
 id groups
@@ -1144,6 +1146,7 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id imageView10
 id imageView11
 id imageView2
 id imageView3
@@ -1172,7 +1175,6 @@ id largeLabel
 id left
 id line1
 id line3
-id linearLayout3
 id listMode
 id list_item
 id list_of_companies
@@ -1202,6 +1204,7 @@ id parent
 id parentPanel
 id parent_matrix
 id percent
+id piechart
 id pin
 id placeholder_companies_shares_price
 id placeholder_company_capital
@@ -1363,7 +1366,6 @@ layout activity_executing_simulation
 layout activity_investor_result
 layout activity_load_simulations
 layout activity_main
-layout activity_results
 layout adapter_company_result
 layout adapter_investor_result
 layout bottom_nav_menu
@@ -1381,6 +1383,8 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout fragment_graph
+layout fragment_results
 layout initial_splash_screen
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
