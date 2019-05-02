@@ -26,7 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".controller.Results" />
-        <activity android:name=".controller.InvestorResult"></activity>
+        <activity android:name=".controller.InvestorResult" />
+        <activity android:name=".controller.CompanyResult"></activity>
     </application>
 
 </manifest>

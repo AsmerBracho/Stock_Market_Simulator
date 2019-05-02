@@ -41,6 +41,7 @@ public class Investor implements Parcelable {
         investorName = in.readString();
         investorNumberOfBoughtShares = in.readInt();
         investorBudget = in.readDouble();
+        shares = in.readHashMap(HashMap.class.getClassLoader());
     }
 
     public static final Creator<Investor> CREATOR = new Creator<Investor>() {
@@ -153,6 +154,7 @@ public class Investor implements Parcelable {
         dest.writeString(investorName);
         dest.writeInt(investorNumberOfBoughtShares);
         dest.writeDouble(investorBudget);
+        dest.writeMap(shares);
     }
 
     /**

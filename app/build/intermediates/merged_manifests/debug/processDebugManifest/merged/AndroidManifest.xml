@@ -36,6 +36,7 @@
         </activity>
         <activity android:name="com.intelligence_1.stockmarketsimulator.controller.Results" />
         <activity android:name="com.intelligence_1.stockmarketsimulator.controller.InvestorResult" />
+        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.CompanyResult" />
     </application>
 
 </manifest>

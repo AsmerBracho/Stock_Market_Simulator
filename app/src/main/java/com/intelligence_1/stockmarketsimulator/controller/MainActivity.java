@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.intelligence_1.stockmarketsimulator.R;
+import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 import com.intelligence_1.stockmarketsimulator.model.utilities.SetUpData;
 import com.jjoe64.graphview.GraphView;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private final String TAG = "MainActivity"; // String used for Debugging and printing Logs
 
     List<Investor> investors;
+    List<Company> companies;
 
     /**
      * On Create method is an override method create every time the activity is requested
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         handleListeners();
 
         investors = SetUpData.SetUpInvestors(100);
+        companies = SetUpData.SetUpCompanies(100);
     }
 
 
@@ -106,7 +109,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Create a new Intent
                 Intent loadSimulations = new Intent(getApplicationContext(), Results.class);
+
                 loadSimulations.putParcelableArrayListExtra("listOfInvestors", (ArrayList<? extends Parcelable>) investors);
+                loadSimulations.putParcelableArrayListExtra("listOfCompanies", (ArrayList<? extends Parcelable>) companies);
+
                 startActivityForResult(loadSimulations, 0);
             }
         });

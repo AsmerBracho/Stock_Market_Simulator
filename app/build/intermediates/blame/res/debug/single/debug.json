@@ -740,6 +740,10 @@
         "source": "C:\\Users\\asmer\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\70dad61e6365eda62045041923570dae\\res\\anim\\abc_fade_in.xml"
     },
     {
+        "merged": "D:\\asmer\\StockMarketSimulator\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_company_result.xml.flat",
+        "source": "D:\\asmer\\StockMarketSimulator\\app\\src\\main\\res\\layout\\adapter_company_result.xml"
+    },
+    {
         "merged": "D:\\asmer\\StockMarketSimulator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\asmer\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\70dad61e6365eda62045041923570dae\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
@@ -1938,6 +1942,10 @@
     {
         "merged": "D:\\asmer\\StockMarketSimulator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_tile_bg.xml.flat",
         "source": "C:\\Users\\asmer\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\6a784e06baceccafff41372482b84c6e\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "D:\\asmer\\StockMarketSimulator\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_company_result.xml.flat",
+        "source": "D:\\asmer\\StockMarketSimulator\\app\\src\\main\\res\\layout\\activity_company_result.xml"
     },
     {
         "merged": "D:\\asmer\\StockMarketSimulator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",

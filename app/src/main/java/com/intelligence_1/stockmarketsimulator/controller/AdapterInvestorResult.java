@@ -9,25 +9,32 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.intelligence_1.stockmarketsimulator.R;
+import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 
+import java.text.DecimalFormat;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorResult.ViewHolder> {
 
     // Global Variable
     private Context context; // context for the views
-
-    private List<Investor> investors;
+    private List<Investor> investors; // list of investors
+    private List<Company> companies; // list of companies
+    private DecimalFormat df = new DecimalFormat("0.00"); // decimal format to show only two decimal places
 
     /**
-     * Constructor of Class Company Adapter that takes as parameter:
+     * Constructor of Class Investor Adapter that takes as parameter:
      * @param context the context of where will be call
      * @param investors a list of investors to be display
+     * @param companies a list of companies to getinfo from
      */
-    public AdapterInvestorResult(Context context, List<Investor> investors) {
+    public AdapterInvestorResult(Context context, List<Investor> investors, List<Company> companies) {
         this.context = context;
         this.investors = investors;
+        this.companies = companies;
     }
 
     @NonNull
@@ -38,7 +45,7 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
     }
 
     /**
-     * This method manipulate and changes the data inside of our layout
+     * This method manipulates and changes the data inside of our layout
      * @param holder
      * @param position
      */
@@ -47,14 +54,22 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
         // set the placeholders
         holder.id.setText(Integer.toString(investors.get(position).getInvestorID()));
         holder.name.setText(investors.get(position).getInvestorName());
-        holder.budget.setText(Double.toString(investors.get(position).getInvestorBudget()));
+        holder.budget.setText(df.format(investors.get(position).getInvestorBudget()));
         holder.shares.setText(Integer.toString(investors.get(position).getInvestorNumberOfBoughtShares()));
 
-//        int numberShares = 0;
-//        // get value for companies by looping the haspMap
-//        for (int i = 0; i < investors.get(position).getShares().size() ; i ++) {
-//            //numberShares += investors.get(position).getShares()
-//         }
+        int numberShares = 0;
+        Map<Integer, Integer> mp = investors.get(position).getShares();
+        // get value for companies by looping the haspMap
+        Iterator it = mp.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            numberShares += (int) pair.getValue();
+
+            it.remove(); // avoids a ConcurrentModificationException
+        }
+
+        holder.companies.setText(Integer.toString(numberShares));
+
     }
 
     @Override
@@ -65,13 +80,14 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
     public class ViewHolder extends RecyclerView.ViewHolder {
         /**
          * Create the Views and math the source with id that comes from the
-         * Item_record layout
+         * adapter_investor_result layout
          */
-        TextView id;
-        TextView name;
-        TextView budget;
-        TextView companies;
-        TextView shares;
+        private TextView id;
+        private TextView name;
+        private TextView budget;
+        private TextView companies;
+        private TextView shares;
+        private TextView capital;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
