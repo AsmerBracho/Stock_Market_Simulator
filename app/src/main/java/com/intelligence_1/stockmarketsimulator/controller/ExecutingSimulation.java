@@ -1,15 +1,24 @@
 package com.intelligence_1.stockmarketsimulator.controller;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.intelligence_1.stockmarketsimulator.Market;
+import com.intelligence_1.stockmarketsimulator.MarketObserver;
 import com.intelligence_1.stockmarketsimulator.R;
+import com.intelligence_1.stockmarketsimulator.model.companies.Company;
+import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class ExecutingSimulation extends AppCompatActivity {
@@ -20,6 +29,9 @@ public class ExecutingSimulation extends AppCompatActivity {
     private LineGraphSeries<DataPoint> mSeries;
     private LineGraphSeries<DataPoint> mSeries2;
 
+    private List<Investor> investorsResults;
+    private List<Company> companiesResults;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +41,36 @@ public class ExecutingSimulation extends AppCompatActivity {
         //init the graph
         initGraph(graphExecuting);
 
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                // Start Trading
+                Market market = new Market();
+                new MarketObserver(market);
+                market.trade();
+                market.listAllCompanies();
+
+                // get the list from the results
+                investorsResults = market.getInvestors();
+                companiesResults = market.getInactiveCompanies();
+
+                Intent goToResults = new Intent(getApplicationContext(), Results.class);
+
+                goToResults.putParcelableArrayListExtra("listOfInvestors", (ArrayList<? extends Parcelable>) investorsResults);
+                goToResults.putParcelableArrayListExtra("listOfCompanies", (ArrayList<? extends Parcelable>) companiesResults);
+
+                startActivityForResult(goToResults, 0);
+
+                // reset Static Counter for IDs in investors and companies
+                Investor.InvestorBuilder.resetStaticAuxiliaryID();
+                Company.CompanyBuilder.resetStaticAuxiliaryID();
+            }
+        });
+
+
     }
+
+
 
     public void initGraph(GraphView graph) {
         graph.getViewport().setXAxisBoundsManual(true);
@@ -64,7 +105,7 @@ public class ExecutingSimulation extends AppCompatActivity {
                 mHandler.postDelayed(this, 230);
             }
         };
-        mHandler.postDelayed(mTimer, 500);
+        mHandler.postDelayed(mTimer,5);
     }
 
     public void onPause() {

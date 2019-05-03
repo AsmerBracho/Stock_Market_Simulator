@@ -19,7 +19,7 @@ public class AdapterCompanyResult extends RecyclerView.Adapter<AdapterCompanyRes
     // Global Variable
     private Context context; // context for the views
     private List<Company> companies; // list of companies
-    private DecimalFormat df = new DecimalFormat("0.00"); // decimal format to show only two decimal places
+    private DecimalFormat df = new DecimalFormat("0.0000"); // decimal format to show only two decimal places
 
 
     /**

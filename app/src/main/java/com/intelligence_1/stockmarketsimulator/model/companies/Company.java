@@ -9,21 +9,22 @@ package com.intelligence_1.stockmarketsimulator.model.companies;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.List;
+import com.intelligence_1.stockmarketsimulator.model.utilities.CompanyObserverInterface;
+import com.intelligence_1.stockmarketsimulator.model.utilities.Subject;
 
 /**
  * Stock Market Simulator Project
  *
  * @author Asmer Bracho (2016328), Gabriel Oliveira (2016310), Miguelantonio Guerra (2016324)
  */
-public class Company implements Subject, Parcelable {
+public class Company implements Subject<CompanyObserverInterface>, Parcelable {
     private final int companyID; // Company ID
     private String companyName; // Company Name
     private int companyNumberOfShares; // Company Number Of Shares
     private double sharePrice; // Price of each Share
     private int sharesSold; // How many Shares the Company has sold
-    
-    private Observer observerToDoubleSharePrice; // Observer that is watching the company to double shares price
+
+    private CompanyObserverInterface companyObserver; // Observer that is watching the company
 
     /**
      * This is the Constructor of the Company.
@@ -38,7 +39,7 @@ public class Company implements Subject, Parcelable {
         this.companyNumberOfShares = builder.companyNumberOfShares;
         this.sharePrice = builder.sharePrice;
         this.sharesSold = builder.sharesSold;
-        this.observerToDoubleSharePrice = builder.observerToDoubleSharePrice;
+        this.companyObserver = builder.companyObserver;
     }
 
     protected Company(Parcel in) {
@@ -65,10 +66,16 @@ public class Company implements Subject, Parcelable {
      * This method is called every time the company sells a share.
      */
     public void soldAShare() {
-        this.sharesSold++;
-        
-        if (this.sharesSold % 10 == 0) {
-            this.notifyObservers();
+        if(sharesSold < companyNumberOfShares){
+
+            this.sharesSold++;
+
+            if (this.sharesSold % 10 == 0) {
+                this.sharePrice *= 2;
+            }
+        }
+        if(sharesSold == companyNumberOfShares){
+            notifyObservers();
         }
     }
 
@@ -85,7 +92,7 @@ public class Company implements Subject, Parcelable {
      * The price of the shares goes down by 2%
      */
     public void dropSharePrice() {
-        this.sharePrice = 0.98*this.sharePrice;
+        this.sharePrice = 0.991*this.sharePrice;
     }
 
     /**
@@ -116,7 +123,7 @@ public class Company implements Subject, Parcelable {
      * Getter for the shares price
      * @return shares price
      */
-    public double getSharePrice() {
+    public Double getSharePrice() {
         return sharePrice;
     }
 
@@ -157,24 +164,29 @@ public class Company implements Subject, Parcelable {
                 "\n\tSold: " + sharesSold;
     }
 
-    @Override
-    public void register(Observer obj) {
-        this.observerToDoubleSharePrice = obj;
+    public boolean canSellShare(){
+        return companyNumberOfShares > sharesSold;
     }
 
     @Override
-    public void unregister(Observer obj) {
-        this.observerToDoubleSharePrice = null;
+    public void register(CompanyObserverInterface companyObserver) {
+        this.companyObserver = companyObserver;
+    }
+
+
+    @Override
+    public void unregister() {
+        this.companyObserver = null;
     }
 
     @Override
     public void notifyObservers() {
-        this.observerToDoubleSharePrice.update();
+        this.companyObserver.updateCompaniesList(this);
     }
 
     @Override
     public Object getUpdate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
@@ -199,12 +211,11 @@ public class Company implements Subject, Parcelable {
 
         private static int auxiliaryID = 0; // Auxiliary value to calculate company builder ID
         private final int companyID; // company builder ID
+        private CompanyObserverInterface companyObserver;
         private String companyName; // company builder name
         private int companyNumberOfShares; // company builder number of shares
         private double sharePrice; // company builder shares price
         private int sharesSold; // company builder shares sold
-        
-        private Observer observerToDoubleSharePrice; // Observer that is watching the company to double shares price
 
         /**
          * Constructor for the inner static class, the builder class
@@ -218,10 +229,12 @@ public class Company implements Subject, Parcelable {
             this.companyNumberOfShares = companyNumberOfShares;
             this.sharePrice = sharePrice;
             this.sharesSold = 0; // At the beginning the company has not sold any shares
-            
-            this.observerToDoubleSharePrice = null; // No observer at creation
-
+            this.companyObserver = null;
             auxiliaryID++;
+        }
+
+        public static void resetStaticAuxiliaryID() {
+            auxiliaryID = 0;
         }
 
         /**

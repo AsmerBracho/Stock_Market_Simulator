@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
         // Handle the listeners
         handleListeners();
 
-        investors = SetUpData.SetUpInvestors(100);
-        companies = SetUpData.SetUpCompanies(100);
+//        investors = SetUpData.SetUpInvestors(100);
+//        companies = SetUpData.SetUpCompanies(100);
     }
 
 

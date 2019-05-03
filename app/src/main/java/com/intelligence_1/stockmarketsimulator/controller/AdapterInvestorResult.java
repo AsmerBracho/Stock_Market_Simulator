@@ -23,11 +23,12 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
     private Context context; // context for the views
     private List<Investor> investors; // list of investors
     private List<Company> companies; // list of companies
-    private DecimalFormat df = new DecimalFormat("0.00"); // decimal format to show only two decimal places
+    private DecimalFormat df = new DecimalFormat("0.0000"); // decimal format to show only two decimal places
 
     /**
      * Constructor of Class Investor Adapter that takes as parameter:
-     * @param context the context of where will be call
+     *
+     * @param context   the context of where will be call
      * @param investors a list of investors to be display
      * @param companies a list of companies to getinfo from
      */
@@ -46,6 +47,7 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
 
     /**
      * This method manipulates and changes the data inside of our layout
+     *
      * @param holder
      * @param position
      */
@@ -54,21 +56,29 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
         // set the placeholders
         holder.id.setText(Integer.toString(investors.get(position).getInvestorID()));
         holder.name.setText(investors.get(position).getInvestorName());
-        holder.budget.setText(df.format(investors.get(position).getInvestorBudget()));
+        holder.budget.setText("€" + df.format(investors.get(position).getInvestorBudget()));
         holder.shares.setText(Integer.toString(investors.get(position).getInvestorNumberOfBoughtShares()));
 
-        int numberShares = 0;
+        // Initially the capital is equal to the remaining budget of investor
+        double investorCapital = investors.get(position).getInvestorBudget();
         Map<Integer, Integer> mp = investors.get(position).getShares();
         // get value for companies by looping the haspMap
         Iterator it = mp.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
-            numberShares += (int) pair.getValue();
+            int companyId = (int) pair.getKey();
 
+            double sharePrice = 0;
+            for (Company c: companies) {
+                if (c.getCompanyID() == companyId) {
+                    sharePrice = c.getSharePrice();
+                }
+            }
+            investorCapital += sharePrice* ((int) pair.getValue());
             it.remove(); // avoids a ConcurrentModificationException
         }
-
-        holder.companies.setText(Integer.toString(numberShares));
+        holder.capital.setText("€" + df.format(investorCapital));
+        holder.companies.setText(Integer.toString(investors.get(position).getShares().size()));
 
     }
 
@@ -96,6 +106,7 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
             budget = itemView.findViewById(R.id.placeholder_investor_budget);
             companies = itemView.findViewById(R.id.placeholder_investor_companies);
             shares = itemView.findViewById(R.id.placeholder_investor_shares);
+            capital = itemView.findViewById(R.id.placeholder_investor_capital);
         }
     }
 }

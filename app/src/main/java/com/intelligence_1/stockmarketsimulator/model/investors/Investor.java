@@ -8,7 +8,10 @@ package com.intelligence_1.stockmarketsimulator.model.investors;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.HashMap;
+import com.intelligence_1.stockmarketsimulator.model.companies.Company;
+import com.intelligence_1.stockmarketsimulator.model.utilities.Subject;
+
+import java.util.*;
 
 /**
  * Stock Market Project
@@ -18,7 +21,7 @@ public class Investor implements Parcelable {
     private final int investorID; // Investor ID
     private String investorName; // Investor Name
     private int investorNumberOfBoughtShares; // Investor number of shares
-    private HashMap shares; // Shares that the Investors have bought
+    private HashMap<Integer, Integer> shares;// Shares that the Investors have bought
     private double investorBudget; // Investor Budget
 
     /**
@@ -104,8 +107,6 @@ public class Investor implements Parcelable {
         return shares;
     }
 
-
-
     /**
      * Setter for the Map of companies the investor has bought from (key) and how many have bought from them (value)
      * @param shares shares the investors have bought from companies.
@@ -118,7 +119,7 @@ public class Investor implements Parcelable {
      * Getter for the investor budget
      * @return investor budget
      */
-    public double getInvestorBudget() {
+    public Double getInvestorBudget() {
         return investorBudget;
     }
 
@@ -142,6 +143,46 @@ public class Investor implements Parcelable {
                 "\n\tTotal: " + this.investorBudget;
     }
 
+    /**
+     * Buys a share from a company
+     * @param companyID Company ID
+     */
+    public void buyShare(int companyID, double cost){
+
+        this.investorBudget = investorBudget - cost;
+        this.investorNumberOfBoughtShares++;
+
+        if (this.shares.containsKey(companyID)){
+            int currentShares = this.shares.get(companyID);
+            this.shares.put(companyID, currentShares + 1);
+        }else{
+            this.shares.put(companyID, 1);
+        }
+    }
+
+    /**
+     * Prints out the ID of the companies
+     * the investor bought the most shares
+     */
+    public void getMostInvestedCompanies(){
+        if(shares.size() > 0){
+            int maxValueInMap=(Collections.max(shares.values()));
+            for (Map.Entry<Integer, Integer> entry : shares.entrySet()) {
+                if (entry.getValue()==maxValueInMap) {
+                    System.out.println(entry.getKey());
+                }
+            }
+        }
+    }
+
+    public int companiesInvestedNumber(){
+        return shares.size();
+    }
+
+    public int pickACompany(int companiesSize){
+        return (int)(Math.random() * companiesSize);
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -149,7 +190,6 @@ public class Investor implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
         dest.writeInt(investorID);
         dest.writeString(investorName);
         dest.writeInt(investorNumberOfBoughtShares);
@@ -185,6 +225,10 @@ public class Investor implements Parcelable {
             auxiliaryID++;
         }
 
+        public static void resetStaticAuxiliaryID() {
+            auxiliaryID = 0;
+        }
+
         /**
          * Builder Method use to instantiated the Main Class
          * @return Investor Object
@@ -193,6 +237,7 @@ public class Investor implements Parcelable {
             return new Investor(this);
         }
     }
+
 
 }
 

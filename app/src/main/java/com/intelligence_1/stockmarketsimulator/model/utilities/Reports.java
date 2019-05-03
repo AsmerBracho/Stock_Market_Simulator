@@ -172,10 +172,10 @@ public class Reports {
      * This method takes a list of investor and return the investor(s) that have invested
      * in the most/least companies
      * @param investors
-     * @param invessted
+     * @param invested
      * @return
      */
-    public static List<Investor> getInvestorByCompanyInvested(List<Investor> investors, Invested invessted) {
+    public static List<Investor> getInvestorByCompanyInvested(List<Investor> investors, Invested invested) {
         // create the Lists
         List<Investor> investedMost = new ArrayList<>();
         List<Investor> investedLess = new ArrayList<>();
@@ -224,9 +224,9 @@ public class Reports {
             }
 
             // Finally return either the Most or the Less according to your parameter request
-            if (invessted.equals(Invested.MOST)) {
+            if (invested.equals(Invested.MOST)) {
                 return investedMost;
-            } else if (invessted.equals(Invested.LEAST)) {
+            } else if (invested.equals(Invested.LEAST)) {
                 return investedLess;
             }
         }
