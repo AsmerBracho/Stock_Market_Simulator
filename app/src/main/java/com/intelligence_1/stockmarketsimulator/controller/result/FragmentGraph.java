@@ -1,4 +1,4 @@
-package com.intelligence_1.stockmarketsimulator.controller;
+package com.intelligence_1.stockmarketsimulator.controller.result;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

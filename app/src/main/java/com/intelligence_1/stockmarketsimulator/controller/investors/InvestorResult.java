@@ -1,4 +1,4 @@
-package com.intelligence_1.stockmarketsimulator.controller;
+package com.intelligence_1.stockmarketsimulator.controller.investors;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.intelligence_1.stockmarketsimulator.R;
+import com.intelligence_1.stockmarketsimulator.controller.investors.AdapterInvestorResult;
 import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 

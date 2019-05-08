@@ -1,4 +1,4 @@
-package com.intelligence_1.stockmarketsimulator.controller;
+package com.intelligence_1.stockmarketsimulator.controller.investors;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,11 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.intelligence_1.stockmarketsimulator.R;
 import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
-
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
@@ -30,7 +28,7 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
      *
      * @param context   the context of where will be call
      * @param investors a list of investors to be display
-     * @param companies a list of companies to getinfo from
+     * @param companies a list of companies to get info from
      */
     public AdapterInvestorResult(Context context, List<Investor> investors, List<Company> companies) {
         this.context = context;
@@ -42,6 +40,7 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.adapter_investor_result, viewGroup, false);
+
         return new ViewHolder(view);
     }
 
@@ -58,17 +57,19 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
         holder.name.setText(investors.get(position).getInvestorName());
         holder.budget.setText("€" + df.format(investors.get(position).getInvestorBudget()));
         holder.shares.setText(Integer.toString(investors.get(position).getInvestorNumberOfBoughtShares()));
+        holder.companiesInvested.setText(Integer.toString(investors.get(position).getShares().size()));
 
         // Initially the capital is equal to the remaining budget of investor
         double investorCapital = investors.get(position).getInvestorBudget();
         Map<Integer, Integer> mp = investors.get(position).getShares();
         // get value for companies by looping the haspMap
         Iterator it = mp.entrySet().iterator();
+
+        double sharePrice = 0;
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
             int companyId = (int) pair.getKey();
 
-            double sharePrice = 0;
             for (Company c: companies) {
                 if (c.getCompanyID() == companyId) {
                     sharePrice = c.getSharePrice();
@@ -78,7 +79,6 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
             it.remove(); // avoids a ConcurrentModificationException
         }
         holder.capital.setText("€" + df.format(investorCapital));
-        holder.companies.setText(Integer.toString(investors.get(position).getShares().size()));
 
     }
 
@@ -95,7 +95,7 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
         private TextView id;
         private TextView name;
         private TextView budget;
-        private TextView companies;
+        private TextView companiesInvested;
         private TextView shares;
         private TextView capital;
 
@@ -104,7 +104,7 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
             id = itemView.findViewById(R.id.placeholder_investor_id);
             name = itemView.findViewById(R.id.placeholder_investor_name);
             budget = itemView.findViewById(R.id.placeholder_investor_budget);
-            companies = itemView.findViewById(R.id.placeholder_investor_companies);
+            companiesInvested = itemView.findViewById(R.id.placeholder_investor_companies);
             shares = itemView.findViewById(R.id.placeholder_investor_shares);
             capital = itemView.findViewById(R.id.placeholder_investor_capital);
         }

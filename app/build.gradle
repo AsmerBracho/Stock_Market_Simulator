@@ -40,4 +40,8 @@ dependencies {
 
     //Graphs Library
     implementation 'com.jjoe64:graphview:4.2.2'
+
+    // Implementation of Apollo Client as our main resource for DAO dessign pattern
+    implementation 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha5'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
 }

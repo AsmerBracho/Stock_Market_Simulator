@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Stock Market Project
+ *
  * @author Asmer Bracho (2016328), Gabriel Oliveira (2016310), Miguelantonio Guerra (2016324)
  */
 public class Reports {
@@ -106,6 +107,7 @@ public class Reports {
 
     /**
      * Get Company with either Highest or Lowest Capital
+     *
      * @param investors
      * @param shares
      * @return a List of Investors
@@ -156,13 +158,13 @@ public class Reports {
                 listLowest.clear();
                 listLowest.add(investors.get(i));
             }
+        }
 
-            // finally return the company requested in parameters
-            if (shares.equals(Shares.HIGHEST)) {
-                return listHighest;
-            } else if (shares.equals(Shares.LOWEST)) {
-                return listLowest;
-            }
+        // finally return the company requested in parameters
+        if (shares.equals(Shares.HIGHEST)) {
+            return listHighest;
+        } else if (shares.equals(Shares.LOWEST)) {
+            return listLowest;
         }
         return null;
     }
@@ -171,6 +173,7 @@ public class Reports {
     /**
      * This method takes a list of investor and return the investor(s) that have invested
      * in the most/least companies
+     *
      * @param investors
      * @param invested
      * @return
@@ -189,7 +192,7 @@ public class Reports {
         investedMost.add(investors.get(0));
         investedLess.add(investors.get(0));
 
-        for (int i = 1 ; i < investors.size() ; i++) {
+        for (int i = 1; i < investors.size(); i++) {
             // create temp variable
             int temp = investors.get(i).getShares().size();
 
@@ -222,15 +225,14 @@ public class Reports {
                 investedLess.clear();
                 investedLess.add(investors.get(i));
             }
-
-            // Finally return either the Most or the Less according to your parameter request
-            if (invested.equals(Invested.MOST)) {
-                return investedMost;
-            } else if (invested.equals(Invested.LEAST)) {
-                return investedLess;
-            }
         }
 
+        // Finally return either the Most or the Less according to your parameter request
+        if (invested.equals(Invested.MOST)) {
+            return investedMost;
+        } else if (invested.equals(Invested.LEAST)) {
+            return investedLess;
+        }
         return null;
     }
 }

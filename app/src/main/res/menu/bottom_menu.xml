@@ -7,7 +7,14 @@
         android:title="Results"/>
 
     <item
-        android:id="@+id/blank1"/>
+        android:id="@+id/botton_investors"
+        android:icon="@drawable/ic_investor"
+        android:title="Investors"/>
+
+    <item
+        android:id="@+id/botton_companies"
+        android:icon="@drawable/ic_company"
+        android:title="companies"/>
 
     <item
         android:id="@+id/bottom_records"

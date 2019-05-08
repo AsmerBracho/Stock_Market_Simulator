@@ -1,5 +1,4 @@
 package com.intelligence_1.stockmarketsimulator.controller;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -11,12 +10,12 @@ import android.os.Bundle;
 import com.intelligence_1.stockmarketsimulator.Market;
 import com.intelligence_1.stockmarketsimulator.MarketObserver;
 import com.intelligence_1.stockmarketsimulator.R;
+import com.intelligence_1.stockmarketsimulator.controller.result.Results;
 import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -41,6 +40,9 @@ public class ExecutingSimulation extends AppCompatActivity {
         //init the graph
         initGraph(graphExecuting);
 
+        // The main Thread is running the views
+
+        // We trigger a second Thread that runs simultaneously and execute the computing
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
@@ -54,11 +56,12 @@ public class ExecutingSimulation extends AppCompatActivity {
                 investorsResults = market.getInvestors();
                 companiesResults = market.getInactiveCompanies();
 
+                // prepare the Intent to change Screens
                 Intent goToResults = new Intent(getApplicationContext(), Results.class);
-
                 goToResults.putParcelableArrayListExtra("listOfInvestors", (ArrayList<? extends Parcelable>) investorsResults);
                 goToResults.putParcelableArrayListExtra("listOfCompanies", (ArrayList<? extends Parcelable>) companiesResults);
 
+                // After the simulation is finish we open a new activity and catch the results for the simulation
                 startActivityForResult(goToResults, 0);
 
                 // reset Static Counter for IDs in investors and companies

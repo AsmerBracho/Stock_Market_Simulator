@@ -2,22 +2,17 @@ package com.intelligence_1.stockmarketsimulator.controller;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.intelligence_1.stockmarketsimulator.R;
-import com.intelligence_1.stockmarketsimulator.model.companies.Company;
-import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
-import com.intelligence_1.stockmarketsimulator.model.utilities.SetUpData;
+import com.intelligence_1.stockmarketsimulator.controller.load.LoadSimulations;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -31,9 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private Button loadSimulation; // vie for button load_simulation
 
     private final String TAG = "MainActivity"; // String used for Debugging and printing Logs
-
-    List<Investor> investors;
-    List<Company> companies;
 
     /**
      * On Create method is an override method create every time the activity is requested
@@ -52,13 +44,10 @@ public class MainActivity extends AppCompatActivity {
         // Handle the listeners
         handleListeners();
 
-//        investors = SetUpData.SetUpInvestors(100);
-//        companies = SetUpData.SetUpCompanies(100);
     }
 
-
     /**
-     * Method that cointains the Graph to be shown in the main Screen
+     * Method that contains the Graph to be shown in the main screen
      * @param graph
      */
     public void initGraph(GraphView graph) {
@@ -94,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     // Method to get the views from layout
     public void getViews() {
         graph = findViewById(R.id.graph);
@@ -108,10 +102,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create a new Intent
-                Intent loadSimulations = new Intent(getApplicationContext(), Results.class);
-
-                loadSimulations.putParcelableArrayListExtra("listOfInvestors", (ArrayList<? extends Parcelable>) investors);
-                loadSimulations.putParcelableArrayListExtra("listOfCompanies", (ArrayList<? extends Parcelable>) companies);
+                Intent loadSimulations = new Intent(getApplicationContext(), LoadSimulations.class);
 
                 startActivityForResult(loadSimulations, 0);
             }

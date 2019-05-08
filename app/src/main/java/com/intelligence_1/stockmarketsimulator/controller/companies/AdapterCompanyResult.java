@@ -1,4 +1,4 @@
-package com.intelligence_1.stockmarketsimulator.controller;
+package com.intelligence_1.stockmarketsimulator.controller.companies;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -46,7 +46,7 @@ public class AdapterCompanyResult extends RecyclerView.Adapter<AdapterCompanyRes
         holder.id .setText(Integer.toString(companies.get(position).getCompanyID()));
         holder.name.setText(companies.get(position).getCompanyName());
         holder.shares.setText(Integer.toString(companies.get(position).getSharesSold()));
-        holder.price.setText(df.format(companies.get(position).getSharePrice()));
+        holder.price.setText("€" + df.format(companies.get(position).getSharePrice()));
         holder.capital.setText( "€" +
                 df.format(companies.get(position).getCompanyNumberOfShares() *
                         companies.get(position).getSharePrice())

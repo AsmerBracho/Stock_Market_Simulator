@@ -1076,14 +1076,16 @@ id async
 id auto
 id barrier
 id beginning
-id blank1
 id blocking
 id bottom
 id bottom_nav_menu
 id bottom_records
+id botton_companies
 id botton_home
+id botton_investors
 id buttonPanel
 id cancel_action
+id card_view_parent
 id center
 id center_horizontal
 id center_vertical
@@ -1099,7 +1101,9 @@ id company_name
 id company_shares
 id company_shares_total
 id company_title
+id constrain
 id container
+id contaris
 id content
 id contentPanel
 id coordinator
@@ -1128,6 +1132,7 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
+id final_budget_general_placeholder
 id fixed
 id forever
 id fragment_container
@@ -1143,6 +1148,7 @@ id home
 id homeAsUp
 id icon
 id icon_group
+id id_general_placeholder
 id ifRoom
 id image
 id imageView
@@ -1157,6 +1163,7 @@ id imageView7
 id imageView8
 id imageView9
 id info
+id initial_budget_general_placeholder
 id investor_budget
 id investor_capital
 id investor_companies
@@ -1178,8 +1185,11 @@ id line3
 id listMode
 id list_item
 id list_of_companies
+id list_of_companies_full
 id list_of_investors
+id list_of_investors_full
 id load_simulation
+id loader_fragment_container
 id logo_result
 id lowest_capital
 id masked
@@ -1190,6 +1200,7 @@ id mini
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
+id name_general_placeholder
 id navigation_header_container
 id never
 id none
@@ -1364,8 +1375,9 @@ layout abc_tooltip
 layout activity_company_result
 layout activity_executing_simulation
 layout activity_investor_result
-layout activity_load_simulations
 layout activity_main
+layout activity_no_records_availables
+layout adapter_companies_investor_full
 layout adapter_company_result
 layout adapter_investor_result
 layout bottom_nav_menu
@@ -1383,9 +1395,12 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout fragment_companies
 layout fragment_graph
+layout fragment_investors
 layout fragment_results
 layout initial_splash_screen
+layout load_simulation_fragment
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

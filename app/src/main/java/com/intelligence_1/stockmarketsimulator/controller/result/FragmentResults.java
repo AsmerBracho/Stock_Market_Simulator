@@ -1,4 +1,4 @@
-package com.intelligence_1.stockmarketsimulator.controller;
+package com.intelligence_1.stockmarketsimulator.controller.result;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,14 +10,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.intelligence_1.stockmarketsimulator.R;
+import com.intelligence_1.stockmarketsimulator.controller.MainActivity;
+import com.intelligence_1.stockmarketsimulator.controller.companies.CompanyResult;
+import com.intelligence_1.stockmarketsimulator.controller.investors.InvestorResult;
 import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 import com.intelligence_1.stockmarketsimulator.model.utilities.Reports;
@@ -53,7 +54,7 @@ public class FragmentResults extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_results, container, false);
 
-        this.context = this.getContext();
+        this.context = this.getContext(); // set the context
 
         // get the views
         investorWithHighestShares = view.findViewById(R.id.investor_higest_shares);
@@ -115,6 +116,7 @@ public class FragmentResults extends Fragment {
                 // create an intent
                 Intent seeResults = new Intent(context, InvestorResult.class);
                 // put  the new list in an Extra
+
                 seeResults.putParcelableArrayListExtra("listOfInvestors", (ArrayList<? extends Parcelable>) filtered);
                 // send companies as well to extract necessary results in the results
                 seeResults.putParcelableArrayListExtra("listOfCompanies", (ArrayList<? extends Parcelable>) companies);
@@ -191,7 +193,7 @@ public class FragmentResults extends Fragment {
      */
     public void exit() {
 
-        // create a Dialog sreen to confirm if the user really want to exit
+        // create a Dialog screen to confirm if the user really want to exit
         new AlertDialog.Builder(context)
                 .setTitle("EXIT")
                 .setMessage("Are you sure you want to exit, without saving? Your Simulation will be deleted")

@@ -4,17 +4,7 @@
             "outputFile": "D:\\asmer\\StockMarketSimulator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\asmer\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\70dad61e6365eda62045041923570dae\\res\\values-land\\values-land.xml",
-                    "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,125,196",
-                        "endColumns": "69,70,67",
-                        "endOffsets": "120,191,259"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\asmer\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\5441bac76528e49ffc878cb851b16cb8\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\asmer\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\b5ea6f21031d2747483f8af13a464073\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,6 +20,16 @@
                         "endLines": "8",
                         "endColumns": "10",
                         "endOffsets": "431"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\asmer\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\6b19f5f767a3936a8a7b716b2b6dde08\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
                     }
                 }
             ]

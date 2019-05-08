@@ -1,4 +1,4 @@
-package com.intelligence_1.stockmarketsimulator.controller;
+package com.intelligence_1.stockmarketsimulator.controller.result;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,6 +13,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.intelligence_1.stockmarketsimulator.R;
+import com.intelligence_1.stockmarketsimulator.controller.MainActivity;
+import com.intelligence_1.stockmarketsimulator.controller.companies.FragmentCompanies;
+import com.intelligence_1.stockmarketsimulator.controller.investors.FragmentInvestors;
+import com.intelligence_1.stockmarketsimulator.controller.result.FragmentGraph;
+import com.intelligence_1.stockmarketsimulator.controller.result.FragmentResults;
 import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 
@@ -38,7 +43,7 @@ public class Results extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new FragmentResults(companies, investors)).commit();
 
-        // handle the listeners in the apllication
+        // handle the listeners in the application
         handleListeners();
 
         // Bottom Navigation View
@@ -63,6 +68,13 @@ public class Results extends AppCompatActivity {
                             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                     new FragmentGraph(companies, investors)).commit();
                             break;
+                        case R.id.botton_investors:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                    new FragmentInvestors(investors)).commit();
+                            break;
+                        case R.id.botton_companies:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                    new FragmentCompanies(companies)).commit();
                     }
                     return true;
                 }
@@ -92,6 +104,7 @@ public class Results extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         // create Intent to go to Home Screen
                         Intent goHome = new Intent(context, MainActivity.class);
+                        goHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(goHome);
                     }
                 })

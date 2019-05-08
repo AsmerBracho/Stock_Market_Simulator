@@ -16,10 +16,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.intelligence_1.stockmarketsimulator.controller.MainActivity" />
-        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.LoadSimulations" >
+        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.load.LoadSimulations" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".controller.MainActivity" />
@@ -34,9 +33,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.Results" />
-        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.InvestorResult" />
-        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.CompanyResult" />
+        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.result.Results" />
+        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.investors.InvestorResult" />
+        <activity android:name="com.intelligence_1.stockmarketsimulator.controller.companies.CompanyResult" />
     </application>
 
 </manifest>

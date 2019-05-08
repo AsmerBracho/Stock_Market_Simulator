@@ -8,6 +8,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
+        // Implementation of Apollo Client as our main resource for DAO dessign pattern
+        classpath 'com.apollographql.apollo:apollo-gradle-plugin:1.0.0-alpha5'
         
 
         // NOTE: Do not place your application dependencies here; they belong

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".controller.MainActivity" />
-        <activity android:name=".controller.LoadSimulations">
+        <activity android:name=".controller.load.LoadSimulations">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".controller.MainActivity" />
@@ -25,9 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.Results" />
-        <activity android:name=".controller.InvestorResult" />
-        <activity android:name=".controller.CompanyResult"></activity>
+        <activity android:name=".controller.result.Results" />
+        <activity android:name=".controller.investors.InvestorResult" />
+        <activity android:name=".controller.companies.CompanyResult"></activity>
     </application>
 
 </manifest>
