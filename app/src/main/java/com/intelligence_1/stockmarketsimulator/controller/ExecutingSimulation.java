@@ -1,3 +1,10 @@
+/**
+ * Stock Market Project
+ * @authors Asmer Bracho (2016328),
+ *          Gabriel Oliveira (2016310),
+ *          Miguelantonio Guerra (2016324)
+ */
+
 package com.intelligence_1.stockmarketsimulator.controller;
 import android.content.Intent;
 import android.graphics.Color;
@@ -6,7 +13,6 @@ import android.os.Handler;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import com.intelligence_1.stockmarketsimulator.Market;
 import com.intelligence_1.stockmarketsimulator.MarketObserver;
 import com.intelligence_1.stockmarketsimulator.R;
@@ -20,25 +26,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * ExecutingSimulation Class
+ * Activity that calls the model and creates the simulation
+ */
 public class ExecutingSimulation extends AppCompatActivity {
 
     private final Handler mHandler = new Handler();
     private Runnable mTimer;
+
+    // Variable for the Graph
     private double graphLastXValue = 5d;
     private LineGraphSeries<DataPoint> mSeries;
     private LineGraphSeries<DataPoint> mSeries2;
+    // Lists
+    private List<Investor> investorsResults; // list of investors
+    private List<Company> companiesResults; // list of companies
 
-    private List<Investor> investorsResults;
-    private List<Company> companiesResults;
+    int investorsN;
+    int companiesN;
+
+    Market market;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_executing_simulation);
-        // get the view
-        GraphView graphExecuting = (GraphView) findViewById(R.id.graph_executing);
+        // get the view for the graph
+        GraphView graphExecuting = findViewById(R.id.graph_executing);
         //init the graph
         initGraph(graphExecuting);
+
+//        final String investorNumber = getIntent().getStringExtra("investorsNumber");
+//        final String companyNumber = getIntent().getStringExtra("companyNumber");
+//
+//        investorsN = Integer.parseInt(investorNumber);
+//        companiesN = Integer.parseInt(companyNumber);
 
         // The main Thread is running the views
 
@@ -47,9 +70,9 @@ public class ExecutingSimulation extends AppCompatActivity {
             @Override
             public void run() {
                 // Start Trading
-                Market market = new Market();
-                new MarketObserver(market);
-                market.trade();
+                market = new Market(); // an Instance of the Market where we trade
+                new MarketObserver(market); // create an observer that takes the market
+                market.trade(); // start trading
                 market.listAllCompanies();
 
                 // get the list from the results
@@ -69,17 +92,17 @@ public class ExecutingSimulation extends AppCompatActivity {
                 Company.CompanyBuilder.resetStaticAuxiliaryID();
             }
         });
-
-
     }
 
-
-
+    /**
+     * Method that contain an animation of a Graph that
+     * is part of the interaction and main thread of our simulation
+     * @param graph
+     */
     public void initGraph(GraphView graph) {
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(4);
-
         graph.getGridLabelRenderer().setLabelVerticalWidth(100);
 
         // first mSeries is a line with background
@@ -93,13 +116,12 @@ public class ExecutingSimulation extends AppCompatActivity {
         mSeries2.setDrawDataPoints(true);
         mSeries2.setColor(Color.GREEN);
         graph.addSeries(mSeries2);
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mTimer = new Runnable() {
+        mTimer = new Runnable() { // create the runnable and start to draw
             @Override
             public void run() {
                 graphLastXValue += 0.25d;

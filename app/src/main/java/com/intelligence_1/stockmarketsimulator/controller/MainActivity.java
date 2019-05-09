@@ -1,3 +1,9 @@
+/**
+ * Stock Market Project
+ * @authors Asmer Bracho (2016328),
+ *          Gabriel Oliveira (2016310),
+ *          Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller;
 
 import android.content.Intent;
@@ -15,11 +21,8 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.Random;
 
-/**
- * Stock Market Project
- * @author Asmer Bracho (2016328), Gabriel Oliveira (2016310), Miguelantonio Guerra (2016324)
- */
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
 
     private GraphView graph; // view for graph
     private Button runSimulation; // view for button run_simulation
@@ -95,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
         loadSimulation = findViewById(R.id.load_simulation);
     }
 
+    public void openDialog() {
+        ExampleDialog exampleDialog = new ExampleDialog();
+        exampleDialog.show(getSupportFragmentManager(), "Start Trading");
+    }
+
     public void handleListeners() {
 
         // Load Simulations Click Listener
@@ -111,9 +119,15 @@ public class MainActivity extends AppCompatActivity {
         runSimulation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //openDialog();
                 Intent runSimulations = new Intent(getApplicationContext(), ExecutingSimulation.class);
                 startActivity(runSimulations);
             }
         });
+    }
+
+    @Override
+    public void applyTexts(String username, String password) {
+
     }
 }

@@ -21,10 +21,15 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.intelligence_1.stockmarketsimulator.R;
+import com.intelligence_1.stockmarketsimulator.controller.StockMarketDAO;
 import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
+import com.intelligence_1.stockmarketsimulator.model.utilities.SortCompanyById;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class FragmentGraph extends Fragment {
@@ -50,106 +55,77 @@ public class FragmentGraph extends Fragment {
         this.context = this.getContext();
 
         // init graphs
-        barChart(view);
-        pieChart(view);
+        barChartCompanies(view);
+        barChartInvestor(view);
 
         return view;
+
     }
 
-
-
-    // BarGraph
-    public void barChart(View view) {
-        BarChart barChart =  view.findViewById(R.id.graph);
+    /**
+     * Method BarChart
+     * Method that initialize the view and handle the necessary data to put in
+     * the graph (bar chart)
+     *
+     * @param view
+     */
+    public void barChartCompanies(View view) {
+        BarChart barChart = view.findViewById(R.id.graph);
 
         //// create BarEntry for incomes and expenses
-        ArrayList<BarEntry> incomes = new ArrayList<>();
-        ArrayList<BarEntry> expenses = new ArrayList<>();
-
-        // create BarEntry for Bar Group 1
-        incomes.add(new BarEntry(8f, 0));
-        incomes.add(new BarEntry(2f, 1));
-        incomes.add(new BarEntry(5f, 2));
-        incomes.add(new BarEntry(20f, 3));
-        incomes.add(new BarEntry(15f, 4));
-        incomes.add(new BarEntry(19f, 5));
-
-        // create BarEntry for Bar Group 2
-        ArrayList<BarEntry> bargroup2 = new ArrayList<>();
-        bargroup2.add(new BarEntry(6f, 0));
-        bargroup2.add(new BarEntry(10f, 1));
-        bargroup2.add(new BarEntry(5f, 2));
-        bargroup2.add(new BarEntry(25f, 3));
-        bargroup2.add(new BarEntry(4f, 4));
-        bargroup2.add(new BarEntry(17f, 5));
-
-        // creating dataset for Bar Group1
-        BarDataSet barDataSet1 = new BarDataSet(incomes, "Bar Group 1");
-        barDataSet1.setColor(Color.parseColor("#64f169"));
-
-        BarDataSet barDataSet2 = new BarDataSet(bargroup2, "Bar Group 2");
-        barDataSet2.setColor(Color.parseColor("#e45558"));
-
-        // Labels
+        ArrayList<BarEntry> capital = new ArrayList<>();
         ArrayList<String> labels = new ArrayList<String>();
-        labels.add("1");
-        labels.add("2");
-        labels.add("3");
-        labels.add("4");
-        labels.add("5");
-        labels.add("6");
-        labels.add("7");
-        labels.add("8");
-        labels.add("9");
-        labels.add("10");
-        labels.add("11");
-        labels.add("12");
 
+        Collections.sort(companies, new SortCompanyById());
 
-        //combined Data Set
-        ArrayList<BarDataSet> dataSets = new ArrayList<>();  // combined all dataset into an arraylist
-        dataSets.add(barDataSet1);
-        dataSets.add(barDataSet2);
+        int i =0;
+        for (Company c : companies) {
+            labels.add(String.valueOf(i));
+                float totalCapital = (float) (c.getCompanyNumberOfShares()*c.getSharePrice());
+                capital.add(new BarEntry((float) totalCapital, i));
+            i++;
+        }
 
-        BarData data = new BarData(labels, dataSets);
+        // creating dataset for capital
+        BarDataSet barIncomes = new BarDataSet(capital, "Companies Capital");
+        barIncomes.setColor(Color.parseColor("#2ed5e4"));
+
+        BarData data = new BarData(labels, barIncomes);
+        barChart.setDescription("Companies");
         barChart.setData(data);
         barChart.animateY(1000);
-
     }
 
-    public void pieChart(View view) {
-        PieChart pieChart = (PieChart) view.findViewById(R.id.piechart);
-        pieChart.setUsePercentValues(true);
+    /**
+     * Method BarChart
+     * Method that initialize the view and handle the necessary data to put in
+     * the graph (bar chart)
+     *
+     * @param view
+     */
+    public void barChartInvestor(View view) {
+        BarChart barChart = view.findViewById(R.id.barChart2);
 
+        //// create BarEntry for incomes and expenses
+        ArrayList<BarEntry> shares = new ArrayList<>();
+        ArrayList<String> labels = new ArrayList<String>();
 
-        // IMPORTANT: In a PieChart, no values (Entry) should have the same
-        // xIndex (even if from different DataSets), since no values can be
-        // drawn above each other.
-        ArrayList<Entry> yvalues = new ArrayList<Entry>();
-        yvalues.add(new Entry(8f, 0));
-        yvalues.add(new Entry(15f, 1));
-        yvalues.add(new Entry(12f, 2));
-        yvalues.add(new Entry(25f, 3));
-        yvalues.add(new Entry(23f, 4));
-        yvalues.add(new Entry(17f, 5));
+        int i =0;
+        for (Investor inv : investors) {
+            labels.add(String.valueOf(i));
+            float sharesInv = (float) (inv.getInvestorNumberOfBoughtShares());
+            shares.add(new BarEntry((float) sharesInv, i));
+            i++;
+        }
 
-        PieDataSet dataSet = new PieDataSet(yvalues, "Election Results");
+        // creating data set for capital
+        BarDataSet barIncomes = new BarDataSet(shares, "Investors Shares Bought");
+        barIncomes.setColor(Color.parseColor("#2eb945"));
 
-        ArrayList<String> xVals = new ArrayList<String>();
-
-        xVals.add("January");
-        xVals.add("February");
-        xVals.add("March");
-        xVals.add("April");
-        xVals.add("May");
-        xVals.add("June");
-
-        PieData data = new PieData(xVals, dataSet);
-
-        data.setValueFormatter(new PercentFormatter());
-
-        // setData
-        pieChart.setData(data);
-        pieChart.animateX(1000);
+        BarData data = new BarData(labels, barIncomes);
+        barChart.setDescription("Investor");
+        barChart.setData(data);
+        barChart.animateY(1000);
     }
+
 }

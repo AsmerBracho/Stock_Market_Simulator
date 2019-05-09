@@ -20,14 +20,18 @@ public class Market implements Subject<MarketObserverInterface> {
 
     private Stack<Company> companiesStack;
 
-    private List<Company> companies = SetUpData.SetUpCompanies(100);
+    private List<Company> companies;
     private List<Company> inactiveCompanies;
-    private List<Investor> investors = SetUpData.SetUpInvestors(100);
+    private List<Investor> investors;
     private MarketObserverInterface observer;
     private List<Transaction> transactionsHistory;
     private int counter = 0;
 
     public  Market(){
+
+        companies = SetUpData.SetUpCompanies(1);
+        investors = SetUpData.SetUpInvestors(1);
+
         /*for(Company c : companies){
             System.out.println("Company number of shares: " + c.getCompanyNumberOfShares());
         }*/

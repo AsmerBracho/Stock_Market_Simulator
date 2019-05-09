@@ -1,0 +1,10 @@
+mutation addSimulation ($name: String!, $investors: [InvestorInput!], $companies: [CompanyInput!], $shares: [ShareInput!]) {
+    createSimulation (
+        name: $name,
+        investors: $investors,
+        companies: $companies,
+        shares: $shares
+    ) {
+        id
+    }
+}
