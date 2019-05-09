@@ -1,3 +1,10 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller.companies;
 
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +19,10 @@ import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class Company Result
+ * It contains the cards for the companies results for the different records
+ */
 public class CompanyResult extends AppCompatActivity {
 
     private RecyclerView listOfCompanies; // Views for the list of companies

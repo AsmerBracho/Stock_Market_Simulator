@@ -1,7 +1,13 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller.investors;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,23 +20,28 @@ import android.widget.TextView;
 
 import com.intelligence_1.stockmarketsimulator.R;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
-import com.intelligence_1.stockmarketsimulator.model.utilities.Reports;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
+/**
+ * AdapterInvestor Full
+ * contain the adapter to be applied to the list that contain all the investors
+ */
 public class AdapterInvestorsFull extends RecyclerView.Adapter<AdapterInvestorsFull.ViewHolder>
 implements Filterable {
 
-    private Context context;
+    private Context context; // application context
     private List<Investor> investorsFinal; // list of investor
     private List<Investor> investorsFinalFull; // copy of investor for filter purposes
 
 
-
+    /**
+     * Constructor of AdapterInvestorFull
+     * @param context context
+     * @param investorsFinal list of investors
+     */
     public AdapterInvestorsFull(Context context, List<Investor> investorsFinal) {
 
         this.context = context;
@@ -108,7 +119,10 @@ implements Filterable {
         }
     };
 
-
+    /**
+     * Create the Views and math the source with id that comes from the
+     * adapter_investor_result layout
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         // Declare the Views
@@ -125,20 +139,6 @@ implements Filterable {
             name = itemView.findViewById(R.id.name_general_placeholder);
             shares = itemView.findViewById(R.id.initial_budget_general_placeholder);
             companiesInvested = itemView.findViewById(R.id.final_budget_general_placeholder);
-        }
-    }
-
-    public void changeColor(ViewHolder holder, int i) {
-        if (i == 1) {
-            holder.id.setTextColor(Color.GREEN);
-            holder.name.setTextColor(Color.GREEN);
-            holder.companiesInvested.setTextColor(Color.GREEN);
-            holder.shares.setTextColor(Color.GREEN);
-        } else {
-            holder.id.setTextColor(Color.RED);
-            holder.name.setTextColor(Color.RED);
-            holder.companiesInvested.setTextColor(Color.RED);
-            holder.shares.setTextColor(Color.RED);
         }
     }
 }

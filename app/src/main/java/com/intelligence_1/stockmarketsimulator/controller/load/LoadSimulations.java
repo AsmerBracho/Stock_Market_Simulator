@@ -1,9 +1,16 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller.load;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 
 import com.apollographql.apollo.ApolloCall;
@@ -16,7 +23,6 @@ import com.intelligence_1.stockmarketsimulator.controller.StockMarketDAO;
 import com.intelligence_1.stockmarketsimulator.controller.result.Results;
 import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
-import com.intelligence_1.stockmarketsimulator.type.ShareInput;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -24,17 +30,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Public class LoadSimulation
+ * It contain queries to display simulation stored and retrieve info from then
+ */
 public class LoadSimulations extends AppCompatActivity {
 
     // Our list of simulations
     private List<GetAllSimulationsQuery.GetAllSimulation> simulations = new ArrayList<>();
 
-
     // validation variable
     private String desisionTaker = null;
 
     // Simulation ID (String cause it comes as an intent
-    String simulationID; // simulation id to be retrieve if exits
+    private String simulationID; // simulation id to be retrieve if exits
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +70,10 @@ public class LoadSimulations extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method to retrieve information for given simulation
+     * @param simulationid a simulation id t be retrieved
+     */
     private void retrieveSimulation(int simulationid) {
         // get simulation
         StockMarketDAO.getConnection().query(GetSpecificSimulationQuery.builder()

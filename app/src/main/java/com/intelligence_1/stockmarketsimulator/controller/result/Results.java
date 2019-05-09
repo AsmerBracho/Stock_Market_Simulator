@@ -1,3 +1,10 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller.result;
 
 import android.app.ProgressDialog;
@@ -13,21 +20,16 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.intelligence_1.stockmarketsimulator.AddSimulationMutation;
 import com.intelligence_1.stockmarketsimulator.R;
-import com.intelligence_1.stockmarketsimulator.controller.ExecutingSimulation;
 import com.intelligence_1.stockmarketsimulator.controller.MainActivity;
 import com.intelligence_1.stockmarketsimulator.controller.StockMarketDAO;
 import com.intelligence_1.stockmarketsimulator.controller.companies.FragmentCompanies;
-import com.intelligence_1.stockmarketsimulator.controller.graphql.InvestorGraphQL;
 import com.intelligence_1.stockmarketsimulator.controller.investors.FragmentInvestors;
-import com.intelligence_1.stockmarketsimulator.controller.result.FragmentGraph;
-import com.intelligence_1.stockmarketsimulator.controller.result.FragmentResults;
 import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 import com.intelligence_1.stockmarketsimulator.type.CompanyInput;
@@ -39,13 +41,16 @@ import org.jetbrains.annotations.NotNull;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Public Class result
+ * Contains the implementation and navigation of the bottom menu
+ * and top bar with exit and save simulation button.
+ */
 public class Results extends AppCompatActivity {
 
     private ArrayList<Investor> investors;
@@ -156,6 +161,10 @@ public class Results extends AppCompatActivity {
                 .show();
     }
 
+    /**
+     * Method that handle the listener in the result Activity
+     * Contain exit button and save simulation
+     */
     public void handleListeners() {
         //--------------------------EXIT BOTTOM-------------------------//
         TextView exit = findViewById(R.id.exit);
@@ -175,6 +184,10 @@ public class Results extends AppCompatActivity {
         });
     }
 
+    /**
+     * Method saveSimulation
+     * it Execute a query to write in the database
+     */
     public void saveSimulation() {
         progressDialog.setTitle("Saving");
         progressDialog.setMessage("Please wait while your record are saved...");

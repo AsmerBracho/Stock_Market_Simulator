@@ -1,3 +1,10 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller.result;
 
 import android.annotation.SuppressLint;
@@ -12,26 +19,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.intelligence_1.stockmarketsimulator.R;
-import com.intelligence_1.stockmarketsimulator.controller.StockMarketDAO;
 import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 import com.intelligence_1.stockmarketsimulator.model.utilities.SortCompanyById;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Public Class FragmentGraph
+ * contains the collection of graph used in the application
+ *
+ * Library courtesy of PhylJay in github
+ * https://github.com/PhilJay/MPAndroidChart/tree/master/MPChartLib/src/main/java/com/github/mikephil/charting
+ */
 public class FragmentGraph extends Fragment {
 
     private Context context;
@@ -39,7 +45,8 @@ public class FragmentGraph extends Fragment {
     private List<Company> companies;
 
     // Default Empty Constructor
-    public FragmentGraph () { }
+    public FragmentGraph() {
+    }
 
     @SuppressLint("ValidFragment")
     public FragmentGraph(List<Company> companies, List<Investor> investors) {
@@ -78,11 +85,11 @@ public class FragmentGraph extends Fragment {
 
         Collections.sort(companies, new SortCompanyById());
 
-        int i =0;
+        int i = 0;
         for (Company c : companies) {
             labels.add(String.valueOf(i));
-                float totalCapital = (float) (c.getCompanyNumberOfShares()*c.getSharePrice());
-                capital.add(new BarEntry((float) totalCapital, i));
+            float totalCapital = (float) (c.getCompanyNumberOfShares() * c.getSharePrice());
+            capital.add(new BarEntry((float) totalCapital, i));
             i++;
         }
 
@@ -110,7 +117,7 @@ public class FragmentGraph extends Fragment {
         ArrayList<BarEntry> shares = new ArrayList<>();
         ArrayList<String> labels = new ArrayList<String>();
 
-        int i =0;
+        int i = 0;
         for (Investor inv : investors) {
             labels.add(String.valueOf(i));
             float sharesInv = (float) (inv.getInvestorNumberOfBoughtShares());

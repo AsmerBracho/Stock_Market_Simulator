@@ -1,3 +1,10 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller;
 
 import android.app.Dialog;
@@ -13,10 +20,15 @@ import android.widget.EditText;
 
 import com.intelligence_1.stockmarketsimulator.R;
 
-
-public class ExampleDialog extends AppCompatDialogFragment {
-    private EditText editTextCompanies;
-    private EditText editTextInvestors;
+/**
+ * PopUp Dialog class
+ * Creates a Pop Up that contains the views for the user to input
+ * the number of companies and investors to be created
+ */
+public class PopUpDialog extends AppCompatDialogFragment {
+    // views
+    private EditText editTextCompanies; // field for company input
+    private EditText editTextInvestors; // field for investor input
     private ExampleDialogListener listener;
 
     @Override
@@ -26,6 +38,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_dialog, null);
 
+        // set a view
         builder.setView(view)
                 .setTitle("Set Up the Values")
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
@@ -40,6 +53,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
                         String companies = editTextCompanies.getText().toString();
                         String investors = editTextInvestors.getText().toString();
                         Intent runSimulations = new Intent(getContext(), ExecutingSimulation.class);
+                        // put the extras to be send to the executingSimulation activity and initialize the lists
                         runSimulations.putExtra("investorsNumber", investors);
                         runSimulations.putExtra("companyNumber", companies);
                         startActivity(runSimulations);

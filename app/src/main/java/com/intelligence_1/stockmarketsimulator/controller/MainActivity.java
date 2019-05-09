@@ -25,7 +25,7 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import java.util.Random;
 
 
-public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
+public class MainActivity extends AppCompatActivity implements PopUpDialog.ExampleDialogListener {
 
     private GraphView graph; // view for graph
     private Button runSimulation; // view for button run_simulation
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     }
 
     public void openDialog() {
-        ExampleDialog exampleDialog = new ExampleDialog();
+        PopUpDialog exampleDialog = new PopUpDialog();
         exampleDialog.show(getSupportFragmentManager(), "Start Trading");
     }
 

@@ -1,3 +1,10 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller.load;
 
 import android.content.Context;
@@ -15,14 +22,24 @@ import com.intelligence_1.stockmarketsimulator.R;
 
 import java.util.List;
 
+/**
+ * Public Class LoadSimulationAdapter
+ */
 public class LoadSimulationAdapter extends RecyclerView.Adapter<LoadSimulationAdapter.ViewHolder> {
 
     private Context context; // context for the views
-    private List<GetAllSimulationsQuery.GetAllSimulation> simulations;
+    private List<GetAllSimulationsQuery.GetAllSimulation> simulations; //list of simulations
 
+    /**
+     * Constructor for LoadSimulationAdapter
+     * It takes the parameters
+     * @param context context
+     * @param simulations a list of simulations
+     */
     public LoadSimulationAdapter (Context context, List<GetAllSimulationsQuery.GetAllSimulation> simulations) {
-        this.context = context;
-        this.simulations = simulations;
+        // define parameters as global variables
+        this.context = context; // context
+        this.simulations = simulations; // list of simulations
     }
 
     @NonNull

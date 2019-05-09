@@ -1,3 +1,10 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller.result;
 
 import android.annotation.SuppressLint;
@@ -26,9 +33,14 @@ import com.intelligence_1.stockmarketsimulator.model.utilities.Reports;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Public Class FragmentResult
+ * contains the result to be shown in the application after the
+ * simulation have been executed
+ */
 public class FragmentResults extends Fragment {
 
-    // Global Variables
+    // Global Variables for result
     private CardView companyWithHighestCapital;
     private CardView companyWithLowestCapital;
     private CardView investorWithHighestShares;
@@ -36,9 +48,9 @@ public class FragmentResults extends Fragment {
     private CardView investorInvestedMostCompanies;
     private CardView investorInvestedLeastCompanies;
 
-    private Context context;
-    private List<Investor> investors;
-    private List<Company> companies;
+    private Context context; // application context
+    private List<Investor> investors; // list of investor
+    private List<Company> companies; // list of companies
 
     // Default Empty Constructor
     public FragmentResults () { }

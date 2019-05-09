@@ -1,19 +1,26 @@
+/**
+ * AdapterCompanies Full
+ * contain the adapter to be applied to the list that contain all the companies
+ */
 package com.intelligence_1.stockmarketsimulator.controller.investors;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.intelligence_1.stockmarketsimulator.R;
-import com.intelligence_1.stockmarketsimulator.controller.investors.AdapterInvestorResult;
 import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class InvestorResult
+ * It contains the cards for the investor results for the different records
+ */
 public class InvestorResult extends AppCompatActivity {
 
     private RecyclerView listOfInvestors; // Views for the list of investor
@@ -49,8 +56,6 @@ public class InvestorResult extends AppCompatActivity {
         listOfInvestors.setLayoutManager(layoutManager);
         listOfInvestors.setAdapter(adapterInvestorResult);
     }
-
-
 
 
 }

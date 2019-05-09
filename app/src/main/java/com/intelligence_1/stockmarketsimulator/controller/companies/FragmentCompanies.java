@@ -75,7 +75,11 @@ public class FragmentCompanies extends Fragment {
         return view;
     }
 
-
+    /**
+     * Creates the search icon menu to being able to filter records
+     * @param menu
+     * @param inflater
+     */
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.filter_menu, menu);

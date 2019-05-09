@@ -1,3 +1,10 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller.investors;
 
 import android.content.Context;
@@ -7,9 +14,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.intelligence_1.stockmarketsimulator.R;
 import com.intelligence_1.stockmarketsimulator.model.companies.Company;
 import com.intelligence_1.stockmarketsimulator.model.investors.Investor;
+
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
@@ -70,12 +79,12 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
             Map.Entry pair = (Map.Entry) it.next();
             int companyId = (int) pair.getKey();
 
-            for (Company c: companies) {
+            for (Company c : companies) {
                 if (c.getCompanyID() == companyId) {
                     sharePrice = c.getSharePrice();
                 }
             }
-            investorCapital += sharePrice* ((int) pair.getValue());
+            investorCapital += sharePrice * ((int) pair.getValue());
             it.remove(); // avoids a ConcurrentModificationException
         }
         holder.capital.setText("€" + df.format(investorCapital));
@@ -92,12 +101,12 @@ public class AdapterInvestorResult extends RecyclerView.Adapter<AdapterInvestorR
          * Create the Views and math the source with id that comes from the
          * adapter_investor_result layout
          */
-        private TextView id;
-        private TextView name;
-        private TextView budget;
-        private TextView companiesInvested;
-        private TextView shares;
-        private TextView capital;
+        private TextView id; // investor id
+        private TextView name; // investor name
+        private TextView budget; // investor budget
+        private TextView companiesInvested; // investor companies invested in
+        private TextView shares; // number of shares bough
+        private TextView capital; // investor capital
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

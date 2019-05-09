@@ -1,3 +1,10 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller.companies;
 
 import android.content.Context;
@@ -65,12 +72,12 @@ public class AdapterCompanyResult extends RecyclerView.Adapter<AdapterCompanyRes
          * Create the Views and math the source with id that comes from the
          * adapter_company_result layout
          */
-        private TextView id;
-        private TextView name;
-        private TextView shares;
-        private TextView sharesTotal;
-        private TextView price;
-        private TextView capital;
+        private TextView id; // company id
+        private TextView name; //company name
+        private TextView shares; // number of shares bought
+        private TextView sharesTotal; // total shares randomly assigned when starting
+        private TextView price; // share price
+        private TextView capital; // company capital
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

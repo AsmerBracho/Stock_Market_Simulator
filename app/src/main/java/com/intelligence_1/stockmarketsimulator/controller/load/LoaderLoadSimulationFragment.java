@@ -1,3 +1,10 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller.load;
 
 import android.os.Bundle;
@@ -10,8 +17,11 @@ import android.view.ViewGroup;
 
 import com.intelligence_1.stockmarketsimulator.R;
 
+/**
+ * public class LoaderLoadSimulationFragment
+ * It Contains a Custom Loader
+ */
 public class LoaderLoadSimulationFragment extends Fragment {
-
 
     @Nullable
     @Override

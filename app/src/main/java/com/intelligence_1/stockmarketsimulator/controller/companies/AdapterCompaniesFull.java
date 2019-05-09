@@ -1,3 +1,10 @@
+/**
+ * Stock Market Project
+ *
+ * @authors Asmer Bracho (2016328),
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
+ */
 package com.intelligence_1.stockmarketsimulator.controller.companies;
 
 import android.content.Context;
@@ -16,16 +23,26 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * AdapterCompanies Full
+ * contain the adapter to be applied to the list that contain all the companies
+ */
 public class AdapterCompaniesFull extends RecyclerView.Adapter<AdapterCompaniesFull.ViewHolder>
 implements Filterable {
 
-    private Context context;
-    private List<Company> companiesFinal;
+    private Context context; // application contex
+    private List<Company> companiesFinal; // list of companies to be displayed
     private List<Company> companiesFinalFull; // copy of companies for filter purposes
     private DecimalFormat df = new DecimalFormat("0.0000"); // decimal format to show only two decimal places
 
+    /**
+     * Constructor AdapterCompaniesFull
+     * @param context the context
+     * @param companiesFinal a list of companies
+     */
     public AdapterCompaniesFull(Context context, List<Company> companiesFinal) {
 
+        // set parameter as global variables
         this.context = context;
         this.companiesFinal = companiesFinal;
 
@@ -100,6 +117,10 @@ implements Filterable {
         }
     };
 
+    /**
+     * Inner Class ViewHolder
+     * Class that create and initialize the views
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         // Declare the Views
