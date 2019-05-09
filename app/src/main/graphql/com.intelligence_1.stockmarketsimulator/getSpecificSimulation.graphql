@@ -1,0 +1,24 @@
+query getSpecificSimulation($id: Int!){
+  simulation(id: $id) {
+		id
+    name
+    investors {
+      id
+      name
+      sharesBought
+      budget
+    }
+    companies {
+      id
+      name
+      numShares
+      sharesSold
+      price
+    }
+    shares {
+      sharesTraded
+      companyId
+      investorId
+    }
+  }
+}

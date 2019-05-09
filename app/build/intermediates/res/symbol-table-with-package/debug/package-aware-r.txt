@@ -1122,9 +1122,9 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
-id edit_password
+id edit_companies
+id edit_investors
 id edit_query
-id edit_username
 id end
 id end_padder
 id enterAlways
@@ -1277,6 +1277,7 @@ id showHome
 id showTitle
 id simulation_id
 id simulation_name
+id simulation_parent
 id smallLabel
 id snackbar_action
 id snackbar_text

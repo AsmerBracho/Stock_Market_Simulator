@@ -15,8 +15,8 @@ import com.intelligence_1.stockmarketsimulator.R;
 
 
 public class ExampleDialog extends AppCompatDialogFragment {
-    private EditText editTextUsername;
-    private EditText editTextPassword;
+    private EditText editTextCompanies;
+    private EditText editTextInvestors;
     private ExampleDialogListener listener;
 
     @Override
@@ -27,7 +27,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.layout_dialog, null);
 
         builder.setView(view)
-                .setTitle("Login")
+                .setTitle("Set Up the Values")
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -37,17 +37,17 @@ public class ExampleDialog extends AppCompatDialogFragment {
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String username = editTextUsername.getText().toString();
-                        String password = editTextPassword.getText().toString();
+                        String companies = editTextCompanies.getText().toString();
+                        String investors = editTextInvestors.getText().toString();
                         Intent runSimulations = new Intent(getContext(), ExecutingSimulation.class);
-                        runSimulations.putExtra("investorsNumber", username);
-                        runSimulations.putExtra("companyNumber", password);
+                        runSimulations.putExtra("investorsNumber", investors);
+                        runSimulations.putExtra("companyNumber", companies);
                         startActivity(runSimulations);
                     }
                 });
 
-        editTextUsername = view.findViewById(R.id.edit_username);
-        editTextPassword = view.findViewById(R.id.edit_password);
+        editTextCompanies = view.findViewById(R.id.edit_companies);
+        editTextInvestors = view.findViewById(R.id.edit_investors);
 
         return builder.create();
     }

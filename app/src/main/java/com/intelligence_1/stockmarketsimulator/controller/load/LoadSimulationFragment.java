@@ -5,19 +5,18 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.intelligence_1.stockmarketsimulator.GetAllSimulationsQuery;
 import com.intelligence_1.stockmarketsimulator.R;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class LoadSimulationFragment extends Fragment {
 
+    // Global Variables
     private Context context;
     private RecyclerView fragmentSimulationList;
     // Our list of simulations
@@ -26,7 +25,10 @@ public class LoadSimulationFragment extends Fragment {
     // Default Constructor
     public LoadSimulationFragment() {}
 
-
+    /**
+     * Fragment LoadSimulation
+     * @param simulations a list of simulations to be displayed
+     */
     @SuppressLint("ValidFragment")
     public LoadSimulationFragment(List<GetAllSimulationsQuery.GetAllSimulation> simulations) {
         this.simulations = simulations;
@@ -41,6 +43,17 @@ public class LoadSimulationFragment extends Fragment {
 
         // get the view for recycler view
         fragmentSimulationList = view.findViewById(R.id.fragment_simulation_list);
+
+        // creates an adapter
+        LoadSimulationAdapter loadSimulationAdapter = new LoadSimulationAdapter(context, simulations);
+
+        // set the adapter
+
+        // set the adapter
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+        fragmentSimulationList.setLayoutManager(layoutManager);
+        fragmentSimulationList.setAdapter(loadSimulationAdapter);
+
         return view;
     }
 }

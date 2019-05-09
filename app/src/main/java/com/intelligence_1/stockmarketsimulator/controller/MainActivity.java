@@ -1,13 +1,16 @@
 /**
  * Stock Market Project
+ *
  * @authors Asmer Bracho (2016328),
- *          Gabriel Oliveira (2016310),
- *          Miguelantonio Guerra (2016324)
+ * Gabriel Oliveira (2016310),
+ * Miguelantonio Guerra (2016324)
  */
 package com.intelligence_1.stockmarketsimulator.controller;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -47,6 +50,14 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         // Handle the listeners
         handleListeners();
 
+        // Check  if we are reloading this activity from save Record
+        // if that is the case show the message
+        String simulationSaved = getIntent().getStringExtra("simulationSaved");
+        if ("SIMULATION_SAVE".equals(simulationSaved)) {
+            // show a dialog
+            //recordSavedDialog();
+        }
+
     }
 
     /**
@@ -58,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         DataPoint[] dataSerie1 = new DataPoint[10];
 
         // first series
-        for (int i=0; i<10 ; i++) {
+        for (int i = 0; i < 10; i++) {
             int j = r.nextInt(20);
             dataSerie1[i] = new DataPoint(i, j);
         }
@@ -70,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
         // second series
         DataPoint[] dataSerie2 = new DataPoint[10];
-        for (int i=0; i<10 ; i++) {
+        for (int i = 0; i < 10; i++) {
             int j = r.nextInt(20);
             dataSerie2[i] = new DataPoint(i, j);
         }
@@ -89,6 +100,19 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     @Override
     public void onBackPressed() {
         finish();
+    }
+
+    public void recordSavedDialog() {
+        new AlertDialog.Builder(getApplicationContext())
+                .setTitle("SIMULATION SAVED")
+                .setMessage("Your simulation have been successfully saved")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Dismiss
+                    }
+                })
+                .show();
     }
 
     // Method to get the views from layout
@@ -111,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
             public void onClick(View v) {
                 // Create a new Intent
                 Intent loadSimulations = new Intent(getApplicationContext(), LoadSimulations.class);
-
                 startActivityForResult(loadSimulations, 0);
             }
         });
@@ -119,9 +142,9 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         runSimulation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //openDialog();
-                Intent runSimulations = new Intent(getApplicationContext(), ExecutingSimulation.class);
-                startActivity(runSimulations);
+                openDialog();
+//                Intent runSimulations = new Intent(getApplicationContext(), ExecutingSimulation.class);
+//                startActivity(runSimulations);
             }
         });
     }

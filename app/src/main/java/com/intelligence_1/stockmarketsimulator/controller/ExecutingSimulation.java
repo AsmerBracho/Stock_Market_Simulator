@@ -46,8 +46,6 @@ public class ExecutingSimulation extends AppCompatActivity {
     int investorsN;
     int companiesN;
 
-    Market market;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,12 +55,11 @@ public class ExecutingSimulation extends AppCompatActivity {
         //init the graph
         initGraph(graphExecuting);
 
-//        final String investorNumber = getIntent().getStringExtra("investorsNumber");
-//        final String companyNumber = getIntent().getStringExtra("companyNumber");
-//
-//        investorsN = Integer.parseInt(investorNumber);
-//        companiesN = Integer.parseInt(companyNumber);
+        final String investorNumber = getIntent().getStringExtra("investorsNumber");
+        final String companyNumber = getIntent().getStringExtra("companyNumber");
 
+        companiesN = Integer.parseInt(companyNumber);
+        investorsN = Integer.parseInt(investorNumber);
         // The main Thread is running the views
 
         // We trigger a second Thread that runs simultaneously and execute the computing
@@ -70,7 +67,7 @@ public class ExecutingSimulation extends AppCompatActivity {
             @Override
             public void run() {
                 // Start Trading
-                market = new Market(); // an Instance of the Market where we trade
+                Market market = new Market(companiesN,investorsN); // an Instance of the Market where we trade
                 new MarketObserver(market); // create an observer that takes the market
                 market.trade(); // start trading
                 market.listAllCompanies();

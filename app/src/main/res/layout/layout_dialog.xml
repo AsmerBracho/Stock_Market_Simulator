@@ -5,19 +5,19 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/edit_username"
+        android:id="@+id/edit_companies"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Number Investor"
+        android:hint="Number of Companies"
         android:inputType="number"/>
 
     <EditText
-        android:id="@+id/edit_password"
+        android:id="@+id/edit_investors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edit_username"
+        android:layout_below="@id/edit_companies"
         android:layout_alignParentStart="true"
-        android:hint="Number Companies"
+        android:hint="Number of Investors"
         android:inputType="number"/>
 
 </RelativeLayout>

@@ -27,10 +27,12 @@ public class Market implements Subject<MarketObserverInterface> {
     private List<Transaction> transactionsHistory;
     private int counter = 0;
 
-    public  Market(){
+    public Market() {}
 
-        companies = SetUpData.SetUpCompanies(1);
-        investors = SetUpData.SetUpInvestors(1);
+    public  Market(int c, int i){
+
+        companies = SetUpData.SetUpCompanies(c);
+        investors = SetUpData.SetUpInvestors(i);
 
         /*for(Company c : companies){
             System.out.println("Company number of shares: " + c.getCompanyNumberOfShares());

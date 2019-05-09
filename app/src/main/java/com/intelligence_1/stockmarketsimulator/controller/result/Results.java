@@ -52,6 +52,7 @@ public class Results extends AppCompatActivity {
     private ArrayList<Company> companies;
     private Context context;
 
+    private TextView saveSimulation;
     private ProgressDialog progressDialog;
 
     @Override
@@ -59,9 +60,14 @@ public class Results extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bottom_nav_menu);
 
+        // Get save Btn view
+        saveSimulation = findViewById(R.id.save_simulation);
+
         // Get the List of investors and Companies
         investors = (ArrayList<Investor>) getIntent().getExtras().getSerializable("listOfInvestors");
         companies = (ArrayList<Company>) getIntent().getExtras().getSerializable("listOfCompanies");
+        String disableSaveBtn = getIntent().getStringExtra("disableSaveBtn");
+
         this.context = this;
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -74,8 +80,16 @@ public class Results extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_menu);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
-        // create progress Dialogo
+        // create progress Dialog
         progressDialog = new ProgressDialog(context);
+
+        // Check if we are eather comming from load a record or running a new simulation
+        // if we are loading a simulation then =>
+        if ("DISABLE_SAVE_BTN".equals(disableSaveBtn)) {
+            // disable save
+            saveSimulation.setEnabled(false);
+            saveSimulation.setVisibility(View.GONE);
+        }
     }
 
     /**
@@ -153,7 +167,6 @@ public class Results extends AppCompatActivity {
         });
 
         //--------------------------SAVE SIMULATION-------------------------//
-        TextView saveSimulation = findViewById(R.id.save_simulation);
         saveSimulation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -205,6 +218,7 @@ public class Results extends AppCompatActivity {
                     .name(companies.get(i).getCompanyName())
                     .numShares(companies.get(i).getCompanyNumberOfShares())
                     .sharesSold(companies.get(i).getSharesSold())
+                    .price(companies.get(i).getSharePrice())
                     .build());
         }
 
@@ -229,6 +243,7 @@ public class Results extends AppCompatActivity {
                     public void run() {
                         progressDialog.dismiss();
                         Intent goHome = new Intent(getApplicationContext(), MainActivity.class);
+                        goHome.putExtra("simulationSaved", "SIMULATION_SAVE");
                         startActivity(goHome);
                     }
                 });
