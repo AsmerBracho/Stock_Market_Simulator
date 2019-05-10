@@ -7,6 +7,7 @@
  */
 package com.intelligence_1.stockmarketsimulator.controller;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -27,6 +28,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements PopUpDialog.ExampleDialogListener {
 
+    private Context context; // context
     private GraphView graph; // view for graph
     private Button runSimulation; // view for button run_simulation
     private Button loadSimulation; // vie for button load_simulation
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements PopUpDialog.Examp
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // context
+        this.context = this;
 
         // get the views
         getViews();
@@ -55,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements PopUpDialog.Examp
         String simulationSaved = getIntent().getStringExtra("simulationSaved");
         if ("SIMULATION_SAVE".equals(simulationSaved)) {
             // show a dialog
-            //recordSavedDialog();
+            recordSavedDialog();
         }
 
     }
@@ -103,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements PopUpDialog.Examp
     }
 
     public void recordSavedDialog() {
-        new AlertDialog.Builder(getApplicationContext())
+        new AlertDialog.Builder(context)
                 .setTitle("SIMULATION SAVED")
                 .setMessage("Your simulation have been successfully saved")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -115,18 +119,28 @@ public class MainActivity extends AppCompatActivity implements PopUpDialog.Examp
                 .show();
     }
 
-    // Method to get the views from layout
+    /**
+     * Get the Views from layout
+     */
     public void getViews() {
         graph = findViewById(R.id.graph);
         runSimulation = findViewById(R.id.run_simulation);
         loadSimulation = findViewById(R.id.load_simulation);
     }
 
+    /**
+     * Method that open dialog to input
+     * companies number and investor number
+     */
     public void openDialog() {
         PopUpDialog exampleDialog = new PopUpDialog();
         exampleDialog.show(getSupportFragmentManager(), "Start Trading");
     }
 
+    /**
+     * Handle the listener in the Activity
+     * Load Simulation ans Run simulation listener
+     */
     public void handleListeners() {
 
         // Load Simulations Click Listener
